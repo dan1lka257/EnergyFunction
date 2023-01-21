@@ -1,7 +1,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
-def print_function():
-    n = int(input())
+import argparse
+
+def argparser():
+    parser = argparse.ArgumentParser(description="Enter a natural number to draw a graph of the form y = x^n")
+    parser.add_argument("number", type=int, help="Natural number")
+    args = parser.parse_args()
+    return args
+
+def print_function(n):
     figure = plt.figure(num=2, figsize=(6, 6))
     ax = figure.add_subplot(1, 1, 1)
     lowerLimF = -5
@@ -17,4 +24,4 @@ def print_function():
     ax.set_xlabel("Axe X")
     plt.show()
 
-print_function()
+print_function(argparser().number)
