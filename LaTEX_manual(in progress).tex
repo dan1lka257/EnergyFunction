@@ -3,6 +3,7 @@
 \usepackage[utf8x]{inputenc}
 \usepackage[english,russian]{babel}
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\usepackage{wrapfig}
 
 \author{Коллективный разум}
 \title{\textit{Бе}се\textit{ды} с \textit{Ба}тю\textit{шкой}}
@@ -23,19 +24,26 @@
 
 \textbf{Непрерывность по Коши:}
 	\[ 
-		\forall \varepsilon > 0 ~ \exists \delta_{\varepsilon} > 0: ~
-		(\forall x\in U_{\delta_{\varepsilon}}(a)\cap M \Rightarrow f(x)\in U_{\varepsilon}(f(a))) 
+		\forall \varepsilon > 0 ~
+		\exists \delta_{\varepsilon} > 0: ~
+		(\forall x\in U_{\delta_{\varepsilon}}(a)\cap M
+		\Rightarrow f(x)\in U_{\varepsilon}(f(a))) 
 	\]
 \begin{center}
 	или в многомерном случае
 \end{center}
 	\[
-		\forall \varepsilon > 0	~ \exists \delta_{\varepsilon} > 0:
-		(\forall x\in B_{\delta_{\varepsilon}}(a) \Rightarrow \rho(f(x),f(a))<\varepsilon),
+		\forall \varepsilon > 0	~
+		\exists \delta_{\varepsilon} > 0:
+		(\forall x\in B_{\delta_{\varepsilon}}(a)
+		\Rightarrow \rho(f(x),f(a))<\varepsilon),
 		\footnote{
 			Здесь ~
-			$B_{\delta_{\varepsilon}} = \{y\in \mathbb{R}^n | ~ \rho(y,a) <\delta_{\varepsilon}\}$,
-			а ~ $\rho(x,y) = \sqrt{\sum_{i=1}^n(x_i - y_i)^2}$
+			$B_{\delta_{\varepsilon}} = 
+			\{y\in \mathbb{R}^n | ~ \rho(y,a) <
+			\delta_{\varepsilon}\}$,
+			а ~
+			$\rho(x,y) = \sqrt{\sum_{i=1}^n(x_i - y_i)^2}$
 				}
 	\]	
 	
@@ -88,11 +96,11 @@
 \newline 4. Тор. Рассматриваем как поворот единичной окружности вокруг оси Oz.
 \(T=\{(x,y,z)\in \mathbb{R}^3\)|
 \begin{equation*}
-	\begin{cases}
-		(y - 2)^2 + z^2 = 1
-		\\
-		x = 0
-	\end{cases}
+\begin{cases}
+(y - 2)^2 + z^2=1
+\\
+x =0
+\end{cases}
 \end{equation*}
 \includegraphics[scale=0.5]{image4.jpg}\\
 
@@ -121,18 +129,30 @@ x^2+y^2=1
 Если $X = \mathbb{R}$, то ДС называется \textbf{потоком} (непрерывная ДС).
 Если $X = \mathbb{Z}$, то ДС называется \textbf{каскадом} (дискретная ДС).\\
 
-Динамическая система $f:M\times X: \rightarrow M$ определяет семейство гомеоморфизмов $\{ f^t~|~ t \in \mathbb{R}(\mathbb{Z}) \}$ на M, где $f^t(x) \equiv f(x,t)$.
+Динамическая система $f:M\times X: \rightarrow M$ определяет семейство гомеоморфизмов $\{ f^t~|~ t \in \mathbb{R}(\mathbb{Z}) \}$ на M, где $f^t(x) \equiv f(x,t)$. \\
+
+Если $t \in \mathbb{Z}$, то
+\begin{itemize}
+\item при $t > 0 \qquad f^t = \underbrace{f \circ \ldots \circ f}_t$;
+\item при $t < 0 \qquad f^t = \underbrace{f^{-1} \circ \ldots \circ f^{-1}}_t$;
+\item $f^0 = Id:M \rightarrow M, ~~ Id(x) = x$
+\end{itemize}
+
+\textbf{\large{Определение:}} \textbf{Траекторией} точки $x_0 \in M$ называется множество $O_{x_0} = \{f^t(x_0)~|~ t \in \mathbb{R(\mathbb{Z}} \}$. Если $t \in \mathbb{Z}$, то траекторию называют \textbf{орбитой}.\\
+
+\textbf{Примеры.} 
 
 
+\begin{wrapfigure}{l}{0.5\textwidth}
+\includegraphics[scale = 0.45]{runner.png} 
+\caption{Бежит человек}
+\end{wrapfigure}
 
 
+$x_t = v_0\cdot t + x_0,$
 
+$~ t\in \mathbb{R};$\\
 
+$f^t:\mathbb{R} \rightarrow \mathbb{R};$\\
 
-
-
-
-
-
-
-\end{document}
+$f^t(x_0) = v\cdot t.$
