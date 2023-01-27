@@ -1,59 +1,73 @@
 import argparse
 import numpy as np
 from matplotlib import pyplot as plt
+from matplotlib import style
 
 def argparser():
     if __name__ == '__main__':
         parser = argparse.ArgumentParser(
             description="""
 
-            Welcome to Graphic Artist.
-
-            -n is an integer degree parameter.
-
+            This script builds graph of function f(x) = |x - 1/2|^n.
+            First one is a direct mapping from a segment.
+            Second one is done by using homeomorphism from segment(with identified ends) to circle.
+            You can input -n parameter in terminal.
+            
             """
         )
 
         parser.add_argument(
             "-n",
             type=int,
-            default=2,
-            help=f"Natural number"
+            default=1,
+            help=f"An Integer Parameter"
         )
 
         parsed_args = parser.parse_args()
 
         return parsed_args
+
+
 def plot_builder(n):
-    radius = 5
-#     Segment [0, 1]
-    domain = np.linspace(0, 1, num=100, endpoint=True)
-    phi = 2 * np.pi * domain
-    
-#     Adding the axes
-    x = radius * np.cos(phi)        #   homeomorphism from segment [0,1] (1~0) to circle is the set of points such as: (cos(2pi*x), sin(2pi*x))
-    y = radius * np.sin(phi)
-    z = np.abs(np.arccos(x/radius) / (2* np.pi) - 0.5) ** n
 
-#     Plotting the figure
-    fig = plt.figure("Zagogulina")
-    ax = fig.add_subplot(111, projection="3d")
+    style.use("seaborn-darkgrid")
 
-    ax.plot(x, y, z)
-#     Plotting domain area
-    ax.plot(x,y, np.zeros(100))
+    def f(dom, n):
+        data1 = (dom, np.abs(dom - 0.5) ** n)
+        x = np.cos(2 * np.pi * dom)
+        y = np.sin(2 * np.pi * dom)
+        z = np.abs(np.arccos(x) / (2 * np.pi) - 0.5) ** n
+        data2 = (x, y, z)
+        return (data1, data2)
 
-#     Visual settings
-    ax.set_xlabel('X', fontweight='bold', fontsize=14)
-    ax.set_ylabel('Y', fontweight='bold', fontsize=14)
-    ax.set_zlabel('Z', fontweight='bold', fontsize=14)
-    ax.set_title('Zagogulina', fontweight='bold', fontsize=16)
+    #     Plotting the figure
+    fig = plt.figure()
+    ax1 = fig.add_subplot(121)
+    ax2 = fig.add_subplot(122,projection="3d")
+    count = 5000
+    domain = np.linspace(0, 1, num=count, endpoint=True)
+    data1, data2 = f(domain, n)
 
-#     Scaling
-    ax.set_xlim(-radius, radius)
-    ax.set_ylim(-radius, radius)
-    ax.set_zlim(0, radius/24)
+    ax1.plot(*data1)
+    ax1.set_xlabel('X', fontweight='bold', fontsize=14)
+    ax1.set_ylabel('Y', fontweight='bold', fontsize=14)
+    ax1.set_title('Mapping f(x) = |x - 1/2|^n from segment', fontweight='bold', fontsize=16)
 
+
+    ax2.plot(*data2)
+    ax2.plot(data2[0], data2[1], np.zeros(count), alpha=0.4)
+    ax2.set_xlabel('X', fontweight='bold', fontsize=12)
+    ax2.set_ylabel('Y', fontweight='bold', fontsize=14)
+    ax2.set_zlabel('Z', fontweight='bold', fontsize=14)
+    ax2.set_title('Mapping |x-1/2|^n from a circle', fontweight='bold', fontsize=16)
+    ax2.view_init(45,215)
+
+    #     Scaling
+    ax2.set_xlim(np.min(data2[0]), np.max(data2[0]))
+    ax2.set_ylim(np.min(data2[1]), np.max(data2[1]))
+    ax2.set_zlim(np.min(data2[2]), np.max(data2[2]))
+    figManager = plt.get_current_fig_manager()
+    figManager.window.showMaximized()
     plt.show()
 
 
