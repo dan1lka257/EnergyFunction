@@ -37,11 +37,11 @@ def print_function(n):
     # text marks on the axes
     ax1.set_xlabel('X', fontsize=14)
     ax1.set_ylabel('Y', fontsize=14)
-    ax1.set_title(f'y = |x - 1/2|^{n} function', fontweight = 'bold', fontsize=16)
+    ax1.set_title(f'y = |x - {radius}/2|^{n} function', fontweight = 'bold', fontsize=16)
     ax2.set_xlabel('X', fontsize=14)
     ax2.set_ylabel('Y', fontsize=14)
     ax2.set_zlabel('Z', fontsize=14)
-    ax2.set_title(f'y = |x - 1/2|^{n} function into circle', fontweight = 'bold', fontsize=16)
+    ax2.set_title(f'y = |x - {radius}/2|^{n} function into circle', fontweight = 'bold', fontsize=16)
     # limiting 3d axes
     ax2.set_xlim(-radius, radius)
     ax2.set_ylim(-radius, radius)
