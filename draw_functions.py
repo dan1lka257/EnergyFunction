@@ -17,14 +17,14 @@ def print_function(n):
     radius = 1
     # 2d axes
     x1 = np.linspace(0, radius, 1000)
-    y1 = abs(x1 - 1/2)**n
+    y1 = abs(x1 - radius/2)**n
     # parameter
-    t = 2 * np.pi * x1
+    t = 2 * np.pi * x1 / radius
     # 3d axes
     x2 = radius * np.cos(t)
     y2 = radius * np.sin(t)
     z2 = np.linspace(0, 0, 1000)
-    z3 = abs(x1 - 1/2)**n
+    z3 = y1
     # print all of axes
     ax1.plot(x1, y1, color='black')
     ax2.plot(x2, y2, z2, color='black', alpha=0.5)
