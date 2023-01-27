@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.16)  27 JAN 2023 21:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.16)  27 JAN 2023 23:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**"LaTEX_manual(in progress) (2).tex"
-(./LaTEX_manual(in progress) (2).tex
+**"LaTEX_manual(in progress).tex"
+(./LaTEX_manual(in progress).tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-08-05>
 (c:/texlive/2022/texmf-dist/tex/latex/base/article.cls
@@ -1054,31 +1054,39 @@ Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 \xmathstrut@box=\box53
 \xmathstrut@dim=\dimen158
 )
+(c:/texlive/2022/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen159
+\WF@size=\dimen160
+\c@WF@wrappedlines=\count277
+\WF@box=\box54
+\WF@everypar=\toks30
+Package: wrapfig 2003/01/31  v 3.6
+)
 (c:/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-08-05 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count277
-\l__pdf_internal_box=\box54
+\l__color_backend_stack_int=\count278
+\l__pdf_internal_box=\box55
 )
-(./LaTEX_manual(in progress) (2).aux)
-\openout1 = `"LaTEX_manual(in progress) (2).aux"'.
+(./LaTEX_manual(in progress).aux)
+\openout1 = `"LaTEX_manual(in progress).aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Info: Redefining \th on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Info: Redefining \th on input line 12.
 
 (c:/texlive/2022/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
@@ -1099,17 +1107,17 @@ File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 
 (c:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count278
-\scratchdimen=\dimen159
-\scratchbox=\box55
-\nofMPsegments=\count279
-\nofMParguments=\count280
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count281
-\MPscratchDim=\dimen160
-\MPnumerator=\count282
-\makeMPintoPDFobject=\count283
-\everyMPtoPDFconversion=\toks31
+\scratchcounter=\count279
+\scratchdimen=\dimen161
+\scratchbox=\box56
+\nofMPsegments=\count280
+\nofMParguments=\count281
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count282
+\MPscratchDim=\dimen162
+\MPnumerator=\count283
+\makeMPintoPDFobject=\count284
+\everyMPtoPDFconversion=\toks32
 ))) (c:/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1119,16 +1127,16 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\Gin@req@height=\dimen161
-\Gin@req@width=\dimen162
+\Gin@req@height=\dimen163
+\Gin@req@width=\dimen164
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 13.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 14.
 
 
 (c:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 13.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
 
 
 (c:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1136,17 +1144,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 18--19
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
 
-Overfull \hbox (33.67538pt too wide) in paragraph at lines 53--54
+Overfull \hbox (19.7768pt too wide) in paragraph at lines 54--55
 []\T2A/cmr/bx/n/14.4 ќпределение: \T2A/cmr/m/n/12 отоб-ра-же-ние $\OML/cmm/m/it
 /12 f \OT1/cmr/m/n/12 : \OML/cmm/m/it/12 M \OMS/cmsy/m/n/12 ! \OML/cmm/m/it/12 
 N$ \T2A/cmr/m/n/12 на-зы-ва-ет-с€ $[]$,
@@ -1154,114 +1162,115 @@ N$ \T2A/cmr/m/n/12 на-зы-ва-ет-с€ $[]$,
 
 [2]
 
-LaTeX Warning: Command \cyrh invalid in math mode on input line 91.
+LaTeX Warning: Command \cyrh invalid in math mode on input line 87.
 
 Missing character: There is no х in font cmr12!
-<image1.jpg, id=34, 462.528pt x 204.5241pt>
+<image1.jpg, id=35, 462.528pt x 204.5241pt>
 File: image1.jpg Graphic file (type jpg)
 <use image1.jpg>
-Package pdftex.def Info: image1.jpg  used on input line 94.
+Package pdftex.def Info: image1.jpg  used on input line 91.
 (pdftex.def)             Requested size: 323.76738pt x 143.16586pt.
-<image2.jpg, id=35, 260.172pt x 230.90265pt>
+<image2.jpg, id=36, 260.172pt x 230.90265pt>
 File: image2.jpg Graphic file (type jpg)
 <use image2.jpg>
-Package pdftex.def Info: image2.jpg  used on input line 96.
+Package pdftex.def Info: image2.jpg  used on input line 93.
 (pdftex.def)             Requested size: 221.14722pt x 196.26816pt.
 [3 <./image1.jpg> <./image2.jpg>]
-<image3.jpg, id=39, 342.078pt x 251.13824pt>
+<image3.jpg, id=40, 342.078pt x 251.13824pt>
 File: image3.jpg Graphic file (type jpg)
 <use image3.jpg>
-Package pdftex.def Info: image3.jpg  used on input line 98.
+Package pdftex.def Info: image3.jpg  used on input line 95.
 (pdftex.def)             Requested size: 171.03857pt x 125.56882pt.
-<image4.jpg, id=40, 367.3725pt x 232.4685pt>
+<image4.jpg, id=41, 367.3725pt x 232.4685pt>
 File: image4.jpg Graphic file (type jpg)
 <use image4.jpg>
-Package pdftex.def Info: image4.jpg  used on input line 108.
+Package pdftex.def Info: image4.jpg  used on input line 105.
 (pdftex.def)             Requested size: 183.68579pt x 116.23396pt.
- [4 <./image3.jpg> <./image4.jpg>]
-<image5.jpg, id=44, 367.3725pt x 278.84175pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--106
+
+ []
+
+<image5.jpg, id=42, 367.3725pt x 278.84175pt>
 File: image5.jpg Graphic file (type jpg)
 <use image5.jpg>
-Package pdftex.def Info: image5.jpg  used on input line 118.
+Package pdftex.def Info: image5.jpg  used on input line 116.
 (pdftex.def)             Requested size: 183.68579pt x 139.42052pt.
- [5 <./image5.jpg>]
-Overfull \hbox (23.99936pt too wide) in paragraph at lines 123--125
+[4 <./image3.jpg> <./image4.jpg> <./image5.jpg>]
+Overfull \hbox (23.99936pt too wide) in paragraph at lines 121--123
 \T2A/cmr/bx/n/14.4 ќпределение: \T2A/cmr/m/n/12 ѕусть M -- мно-го-об-ра-зие. \T
 2A/cmr/bx/n/12 ƒи-на-ми-че-ской си-сте-мой(ƒ—)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 131--133
+Underfull \hbox (badness 10000) in paragraph at lines 129--131
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 132--133
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--144
+Underfull \hbox (badness 10000) in paragraph at lines 141--142
+
+ []
+
+<runner.png, id=46, 330.033pt x 166.221pt>
+File: runner.png Graphic file (type png)
+<use runner.png>
+Package pdftex.def Info: runner.png  used on input line 147.
+(pdftex.def)             Requested size: 148.51347pt x 74.79874pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
 
  []
 
 
-Overfull \hbox (23.15933pt too wide) in paragraph at lines 145--146
-\T2A/cmr/bx/n/12 мер-но отоб-ра-жа-ет от-ре-зок в окруж-ность и то-гда $\OML/cm
-m/m/it/12 z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 w\OT1/cmr/m/n/12 ) = \OML/cmm/m/it
-/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 h[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 w\O
-T1/cmr/m/n/12 ))\OML/cmm/m/it/12 ; w \OMS/cmsy/m/n/12 2
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 149--150
+Underfull \hbox (badness 10000) in paragraph at lines 156--157
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
-
- []
-
-[6] (./LaTEX_manual(in progress) (2).aux) ) 
+[5 <./runner.png>] (./LaTEX_manual(in progress).aux) ) 
 Here is how much of TeX's memory you used:
- 5367 strings out of 477678
- 84598 string characters out of 5833467
- 395706 words of memory out of 5000000
- 24072 multiletter control sequences out of 15000+600000
+ 5457 strings out of 477678
+ 85973 string characters out of 5833467
+ 396939 words of memory out of 5000000
+ 24156 multiletter control sequences out of 15000+600000
  489873 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,9n,71p,515b,217s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/texlive/2022/texmf-dist/fonts/en
-c/dvips/cm-super/cm-super-t2a.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/c
-m-super/cm-super-ts1.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmex10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c
-:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/
-2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2022/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2022/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/t
-exlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2022
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2022/texmf-dist/fonts/t
-ype1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2022/texmf-dist/fonts/type1
-/public/cm-super/sfbx1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm
--super/sfbx1440.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfb
-x1728.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb>
-<c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texliv
-e/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2022/tex
-mf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2022/texmf-dist/fo
-nts/type1/public/cm-super/sfrm1440.pfb><c:/texlive/2022/texmf-dist/fonts/type1/
-public/cm-super/sfrm2074.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-
-super/sfti1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti
-2074.pfb>
-Output written on "LaTEX_manual(in progress) (2).pdf" (6 pages, 366855 bytes).
+ 63i,9n,71p,362b,217s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{c:/texlive/2022/texmf-di
+st/fonts/enc/dvips/cm-super/cm-super-t2a.enc}{c:/texlive/2022/texmf-dist/fonts/
+enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2022/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><
+c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive
+/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2022/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2022/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/t
+exlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/20
+22/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2022/texmf-d
+ist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2022/texmf-dist/
+fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2022/texmf-dist/fonts/type
+1/public/cm-super/sfbx1440.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/c
+m-super/sfbx1728.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sf
+rm0700.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb
+><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texli
+ve/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2022/te
+xmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb><c:/texlive/2022/texmf-dist/f
+onts/type1/public/cm-super/sfrm2074.pfb><c:/texlive/2022/texmf-dist/fonts/type1
+/public/cm-super/sfti1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm
+-super/sfti2074.pfb>
+Output written on "LaTEX_manual(in progress).pdf" (5 pages, 379034 bytes).
 PDF statistics:
  163 PDF objects out of 1000 (max. 8388607)
- 96 compressed objects within 1 object stream
+ 95 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

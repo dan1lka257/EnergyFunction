@@ -3,6 +3,7 @@ import numpy as np
 import argparse
 
 def argparser():
+    # defence against fool
     parser = argparse.ArgumentParser(description='Enter a natural number to draw a graph of the form y = x^n')
     parser.add_argument('number', type=int, help='Natural number')
     args = parser.parse_args()

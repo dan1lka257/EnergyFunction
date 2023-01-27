@@ -3,8 +3,9 @@
 \usepackage[utf8x]{inputenc}
 \usepackage[english,russian]{babel}
 \usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\usepackage{wrapfig}
 
-\author{Ящер с планеты Цугундер}
+\author{Коллективный разум}
 \title{\textit{Бе}се\textit{ды} с \textit{Ба}тю\textit{шкой}}
 \date{\today}
 
@@ -18,7 +19,7 @@
 Пусть $M,N \subset \mathbb{R}^{n}.$ $f:M\longrightarrow N$ -- отображение\footnote{Отображение $f:M\rightarrow N$ -- закон, который каждому элементу $x \in M$ ставит в  соответствие единственный элемент $y \in N.$}.\\
 
 
-Отображение $f$ \textbf{непрерывно в точке $a$}, тогда и только тогда, когда 
+Отображение $f$ \textit{непрерывно в точке $a$}, тогда и только тогда, когда 
 		\[\lim_{x \to a}{f(x)} = f(a)\]
 
 \textbf{Непрерывность по Коши:}
@@ -50,7 +51,7 @@
 	\textbf{По Гейне:}
 		\[ \forall  x_n \to a \Rightarrow f(x_n) \to f(a) \]\\
 	
-	\textbf{\large{Определение:}} отображение $f:M \to N$ называется \underline{\textbf{гомеоморфизмом}}, если
+	\textbf{\large{Определение:}} отображение $f:M \to N$ называется \underline{\textit{гомеоморфизмом}}, если
 	\begin{itemize}
 		\item $f$ -- биекция,
 		\item $f$ -- непрерывна,
@@ -65,36 +66,32 @@
 	
 	\textbf{\large{Упражнение 1:}} доказать или опровергнуть, что ллюбая нерпрерывная биекция является гомеоморфизмом.
 	
-	\textbf{\large{Упражнение 2:}} доказать, что 
-	\begin{center}
-	$(0,1) \cong  \mathbb{R}$
-	\end{center}	
+	\textbf{\large{Упражнение 2:}} доказать, что $(0,1) \cong  \mathbb{R}$
 	
-	\textbf{\large{Упражнение 2:}} доказать, что 
-	\begin{center}
-	D =$\{(x,y)\in \mathbb{R}^2 | x^2 + y^2 < 1\}$ 
-	\newline $D\cong \mathbb{R}^2$ 
-	\end{center}
+	\textbf{\large{Упражнение 3:}} доказать, что $D\cong \mathbb{R}^2$,
+	
+	\[ \textit{где}~ D =\{(x,y)\in \mathbb{R}^2 | x^2 + y^2 < 1\} \]
+	
 	\newpage
 \section*{Многообразие}
 
-Пусть \(M \subset \mathbb{R}^n\) такое, что \(\exists k\in \mathbb{N}\), 
-\( \forall \varepsilon >0\):
+Пусть \(M \subset \mathbb{R}^n\) такое, что \(\exists k\in \mathbb{N}\), $\forall \varepsilon >0$:
 \begin{center}
- либо \(U_{\varepsilon} (x)\cap M \cong \mathbb{R}^k\)
+ \textit{либо} \(U_{\varepsilon} (x)\cap M \cong \mathbb{R}^k\),
 \end{center}
 \begin{center}
- либо \(U_{\varepsilon} (x)\cap M \cong \mathbb{R}_{+}^k\)
+ \textit{либо} \(U_{\varepsilon} (x)\cap M \cong \mathbb{R}_{+}^k\),
 \end{center}
-где \(\mathbb{R}_{+}^k = \{(x_1,x_2,...,x_k)| x_1,..., x_{k-1} \in \mathbb{R}, x_k\ge 0\}\)
+\textit{где} \(\mathbb{R}_{+}^k = \{(x_1,x_2,...,x_k)|~ x_1,..., x_{k-1} \in \mathbb{R}, x_k\ge 0\}\)
 \newline в этом случае M является \underline{\textbf{многообразием}} размерности k.
 \newline Если \(\nexists\) окрестности \(U_{\varepsilon} (x): U_{\varepsilon} (x)\cap M \cong \mathbb{R}^k\), то \(x\) - \textbf{граничная точка}, иначе \(х\)- \textbf{внутренняя точка}.
 \newline Если множество граничных точек пустое (\(\emptyset\)), то \(M\)- многообразие \textbf{без края}, в противном случае \textbf{с краем}.
 \newline \textbf{Примеры:}
+\newline 1. Диск: $D^1 = \{(x,y) \in \mathbb{R}^2 |~ x^2 + y^2 < 1 \} $
 \newline \includegraphics[scale=0.7]{image1.jpg}
-\newline 2. Окружность: \(S^1 = \{(x,y)\in \mathbb{R}^2| x^2 + y^2 =1\}\) 
+\newline 2. Окружность: \(S^1 = \{(x,y)\in \mathbb{R}^2|~ x^2 + y^2 =1\}\) 
 \newline \includegraphics[scale=0.85]{image2.jpg}
-\newpage 3. Сфера: \(S^2 = \{(x,y,z)\in\mathbb{R}^3| x^2+y^2+z^2=1\}\)
+\newpage 3. Сфера: \(S^2 = \{(x,y,z)\in\mathbb{R}^3|~ x^2+y^2+z^2=1\}\)
 \newline \includegraphics[scale=0.5]{image3.jpg}
 \newline 4. Тор. Рассматриваем как поворот единичной окружности вокруг оси Oz.
 \(T=\{(x,y,z)\in \mathbb{R}^3\)|
@@ -105,8 +102,9 @@
 x =0
 \end{cases}
 \end{equation*}
-\includegraphics[scale=0.5]{image4.jpg}
-\newpage 5. Цилиндр.
+\includegraphics[scale=0.5]{image4.jpg}\\
+
+5. Цилиндр.
 \newline \(C = \{(x,y,z)\in \mathbb{R}^3\)|
 \begin{equation*}
 \begin{cases}
@@ -124,8 +122,8 @@ x^2+y^2=1
 на многообразии M называется непрерывное отображение $f:M\times X \rightarrow M~$ $(X = \mathbb{R}~ \textit{или}~ X = \mathbb{Z})$ со следующими свойствами:
 
 \begin{enumerate}
-	\item $f(x,0) = x,\qquad \forall x \in M$
-	\item $f(f(x,t),s) = f(x, t+s),\qquad \forall x \in M \forall t,s \in X$ 
+\item $f(x,0) = x,\qquad \forall x \in M$
+\item $f(f(x,t),s) = f(x, t+s),\qquad \forall x \in M \forall t,s \in X$ 
 \end{enumerate} 
 
 Если $X = \mathbb{R}$, то ДС называется \textbf{потоком} (непрерывная ДС).
@@ -135,14 +133,21 @@ x^2+y^2=1
 
 Если $t \in \mathbb{Z}$, то
 \begin{itemize}
-	\item при $t > 0 \qquad f^t = \underbrace{f \circ \ldots \circ f}_t$;
-	\item при $t < 0 \qquad f^t = \underbrace{f^{-1} \circ \ldots \circ f^{-1}}_t$;
-	\item $f^0 = Id:M \rightarrow M, ~~ Id(x) = x$
+\item при $t > 0 \qquad f^t = \underbrace{f \circ \ldots \circ f}_t$;
+\item при $t < 0 \qquad f^t = \underbrace{f^{-1} \circ \ldots \circ f^{-1}}_t$;
+\item $f^0 = Id:M \rightarrow M, ~~ Id(x) = x$
 \end{itemize}
 
-\textbf{\large{Определение:}} \textbf{Траекторией} точки $x_0 \in M$ называется множество $O_{x_0} = \{f^t(x_0)~|~ t \in \mathbb{R(\mathbb{Z}} \}$. Если $t \in \mathbb{Z}$, то траекторию называют \textbf{орбитой}.\\
+\textbf{\large{Определение:}} \textbf{Траекторией} точки $x_0 \in M$ называется множество $O_{x_0} = \{f^t(x_0)~|~ t \in \mathbb{R(\mathbb{Z})} \}$. Если $t \in \mathbb{Z}$, то траекторию называют \textbf{орбитой}.\\
 
-\textbf{второй - кривая в трехмере,  область определения - окружность единичного радиуса S. Строим гомеоморфизм h: $\tilde{I} \to S$, где $\tilde{I}$ - отрезок I с отождествленными концами, который равномерно отображает отрезок в окружность и тогда $z(w) = f(h^{-1}(w)), w\in S$.} 
+\textbf{Примеры.} 
+
+
+\begin{wrapfigure}{l}{0.5\textwidth}
+\includegraphics[scale = 0.45]{runner.png} 
+\caption{Бежит человек}
+\end{wrapfigure}
+
 
 $x_t = v_0\cdot t + x_0,$
 
@@ -152,16 +157,4 @@ $f^t:\mathbb{R} \rightarrow \mathbb{R};$\\
 
 $f^t(x_0) = v\cdot t.$
 
-	
-	
-	
-	
-
-
-
-
-
-
-
 \end{document}
-
