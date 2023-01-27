@@ -16,14 +16,11 @@ def print_function(n):
     x = np.arange(lowerLimF, upperLimF, 0.1)
     y = x ** n
     ax.plot(x, y)
-    ax.set_yticks(np.arange(min(0, lowerLimF**n), upperLimF**n + 1, max(upperLimF**n//10, 1)))
-    ax.set_xticks(np.arange(-5, 5 + 1, 1))
-    ax.axhline(y=0, color='grey', linestyle='--')
-    ax.axvline(x=0, color='grey', linestyle='--')
-    ax.grid(color='lightgray', linestyle=':')
+    ax.spines['bottom'].set_position(('data',0))
+    ax.spines['left'].set_position(('data',0))
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
     ax.set_title(f'y = x^{n} function', fontsize=20)
-    ax.set_ylabel('Axe Y')
-    ax.set_xlabel('Axe X')
     plt.show()
 
 def isCorrectNumber(num):
