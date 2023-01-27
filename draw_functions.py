@@ -51,7 +51,7 @@ def plot_builder(n):
     ax1.plot(*data1)
     ax1.set_xlabel('X', fontweight='bold', fontsize=14)
     ax1.set_ylabel('Y', fontweight='bold', fontsize=14)
-    ax1.set_title('Mapping f(x) = |x - 1/2|^n from segment', fontweight='bold', fontsize=16)
+    ax1.set_title('Mapping f(x) = |x - 1/2|^n from a segment', fontweight='bold', fontsize=16)
 
 
     ax2.plot(*data2)
@@ -59,7 +59,7 @@ def plot_builder(n):
     ax2.set_xlabel('X', fontweight='bold', fontsize=12)
     ax2.set_ylabel('Y', fontweight='bold', fontsize=14)
     ax2.set_zlabel('Z', fontweight='bold', fontsize=14)
-    ax2.set_title('Mapping |x-1/2|^n from a circle', fontweight='bold', fontsize=16)
+    ax2.set_title('Mapping f(x) = |x - 1/2|^n from a circle', fontweight='bold', fontsize=16)
     ax2.view_init(45,215)
 
     #     Scaling
