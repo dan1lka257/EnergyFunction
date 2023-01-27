@@ -15,14 +15,14 @@ def print_function(n):
     ax2 = fig.add_subplot(1, 2, 2, projection='3d')
     radius = 1
     # 2d axes
-    x1 = np.linspace(0, radius, 100)
+    x1 = np.linspace(0, radius, 1000)
     y1 = abs(x1 - 1/2)**n
     # parameter
     t = 2 * np.pi * x1
     # 3d axes
     x2 = radius * np.cos(t)
     y2 = radius * np.sin(t)
-    z2 = np.linspace(0, 0, 100)
+    z2 = np.linspace(0, 0, 1000)
     z3 = abs(x1 - 1/2)**n
     # print all of axes
     ax1.plot(x1, y1, color='black')
