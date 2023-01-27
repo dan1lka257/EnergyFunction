@@ -34,20 +34,21 @@ def print_function(n):
     ax1.spines['top'].set_visible(False)
     ax1.spines['right'].set_visible(False)
     # text marks on the axes
-    ax1.set_xlabel('X', fontweight = 'bold', fontsize = 14)
-    ax1.set_ylabel('Y', fontweight = 'bold', fontsize = 14)
-    ax1.set_title(f'y = |x - 1/2|^{n} function', fontsize=16)
-    ax2.set_xlabel('X', fontweight = 'bold', fontsize = 14)
-    ax2.set_ylabel('Y', fontweight = 'bold', fontsize = 14)
-    ax2.set_zlabel('Z', fontweight = 'bold', fontsize = 14)
-    ax2.set_title(f'y = |x - 1/2|^{n} function into circle', fontsize=16)
+    ax1.set_xlabel('X', fontsize=14)
+    ax1.set_ylabel('Y', fontsize=14)
+    ax1.set_title(f'y = |x - 1/2|^{n} function', fontweight = 'bold', fontsize=16)
+    ax2.set_xlabel('X', fontsize=14)
+    ax2.set_ylabel('Y', fontsize=14)
+    ax2.set_zlabel('Z', fontsize=14)
+    ax2.set_title(f'y = |x - 1/2|^{n} function into circle', fontweight = 'bold', fontsize=16)
     # limiting 3d axes
     ax2.set_xlim(-radius, radius)
     ax2.set_ylim(-radius, radius)
     ax2.set_zlim(0, max(z3))
     plt.show()
 
-def isCorrectNumber(num):
+def isNaturalNumber(num):
+    # Naturality check
     if num > 0:
         print_function(num)
     else:
@@ -55,4 +56,4 @@ def isCorrectNumber(num):
 
 
 num = argparser().number
-isCorrectNumber(num)
+isNaturalNumber(num)
