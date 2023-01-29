@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="38b98186-5ef0-4549-b0b7-12bc46659a47" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/draw_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/draw_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaTeX/LaTEX_manual(in progress).tex" beforeDir="false" afterPath="$PROJECT_DIR$/LaTeX/LaTEX_manual(in progress).tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaTeX/allimage.png" beforeDir="false" afterPath="$PROJECT_DIR$/LaTeX/images/Section 3. Dinamic System/allimage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaTeX/da.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaTeX/image1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/LaTeX/images/Section 2. Manifold/image1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaTeX/image12.png" beforeDir="false" afterPath="$PROJECT_DIR$/LaTeX/images/Section 3. Dinamic System/image12.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaTeX/image2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/LaTeX/images/Section 2. Manifold/image2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaTeX/image3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/LaTeX/images/Section 2. Manifold/image3.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaTeX/image4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/LaTeX/images/Section 2. Manifold/image4.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaTeX/image5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/LaTeX/images/Section 2. Manifold/image5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaTeX/image6.png" beforeDir="false" afterPath="$PROJECT_DIR$/LaTeX/images/Section 3. Dinamic System/image6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaTeX/image7.png" beforeDir="false" afterPath="$PROJECT_DIR$/LaTeX/images/Section 3. Dinamic System/image7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LaTeX/runner.png" beforeDir="false" afterPath="$PROJECT_DIR$/LaTeX/images/Section 3. Dinamic System/runner.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/draw_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Graph Builder/draw_functions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +29,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/draw_functions.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Graph Builder/draw_functions.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/LaTeX/LaTEX_manual(in progress).tex" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -26,12 +40,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Documents\GitHub\EnergyFunction\Graph Builder" />
+      <recent name="C:\Users\User\Documents\GitHub\EnergyFunction\LaTeX" />
+      <recent name="C:\Users\User\Documents\GitHub\EnergyFunction\LaTeX\images\Section 3. Dinamic System" />
+      <recent name="C:\Users\User\Documents\GitHub\EnergyFunction\LaTeX\images\Section 2. Manifold" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
