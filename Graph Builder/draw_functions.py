@@ -35,17 +35,18 @@ def argparser():
 
 
 def plot_builder(n):
-    style.use("seaborn-darkgrid")
     rcParams["axes.formatter.limits"] = (-2, 4)
 
     # function we gonna build
-    def f(dom, n):
+    def segment(dom, n):
         data1 = (dom, np.abs(dom - 0.5) ** n)
+        return data1
+    def circle(dom, n):
         x = np.cos(2 * np.pi * dom)
         y = np.sin(2 * np.pi * dom)
         z = np.abs(dom - 0.5) ** n
         data2 = (x, y, z)
-        return (data1, data2)
+        return data2
 
     # adds axis lines
     def axis_lines2d(ax1):
@@ -74,6 +75,8 @@ def plot_builder(n):
         ax2.set_title('Mapping |x-1/2|^n from a circle', fontweight='bold', fontsize=16)
         ax2.view_init(45, 215)
 
+        ax1.grid()
+
         figManager = plt.get_current_fig_manager()
         figManager.window.showMaximized()
 
@@ -83,7 +86,8 @@ def plot_builder(n):
     ax2 = fig.add_subplot(122, projection="3d")
     accuracy = 5000
     domain = np.linspace(0, 1, num=accuracy, endpoint=True)
-    data1, data2 = f(domain, n)
+    data1 = segment(domain, n)
+    data2 = circle(domain, n)
     ax1.plot(*data1)
     ax2.plot(*data2)
     ax2.plot(data2[0], data2[1], np.zeros(accuracy), alpha=0.4)
