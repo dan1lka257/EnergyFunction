@@ -88,11 +88,11 @@
 \newline Если множество граничных точек пустое (\(\emptyset\)), то \(M\)- многообразие \textbf{без края}, в противном случае \textbf{с краем}.
 \newline \textbf{Примеры:}
 \newline 1. Диск: $D^1 = \{(x,y) \in \mathbb{R}^2 |~ x^2 + y^2 < 1 \} $
-\newline \includegraphics[scale=0.7]{image1.jpg}
+\newline \includegraphics[scale=0.7]{images/Section 2. Manifold/image1}
 \newline 2. Окружность: \(S^1 = \{(x,y)\in \mathbb{R}^2|~ x^2 + y^2 =1\}\) 
-\newline \includegraphics[scale=0.85]{image2.jpg}
+\newline \includegraphics[scale=0.85]{images/Section 2. Manifold/image2}
 \newpage 3. Сфера: \(S^2 = \{(x,y,z)\in\mathbb{R}^3|~ x^2+y^2+z^2=1\}\)
-\newline \includegraphics[scale=0.5]{image3.jpg}
+\newline \includegraphics[scale=0.5]{images/Section 2. Manifold/image3}
 \newline 4. Тор. Рассматриваем как поворот единичной окружности вокруг оси Oz.
 \(T=\{(x,y,z)\in \mathbb{R}^3\)|
 \begin{equation*}
@@ -102,7 +102,7 @@
 x =0
 \end{cases}
 \end{equation*}
-\includegraphics[scale=0.5]{image4.jpg}\\
+\includegraphics[scale=0.5]{images/Section 2. Manifold/image4}\\
 
 5. Цилиндр.
 \newline \(C = \{(x,y,z)\in \mathbb{R}^3\)|
@@ -113,7 +113,7 @@ x^2+y^2=1
 0\leq z\leq1 
 \end{cases}
 \end{equation*}
-\includegraphics[scale=0.5]{image5.jpg}
+\includegraphics[scale=0.5]{images/Section 2. Manifold/image5}
 \newpage
 
 \section*{Динамическая система}
@@ -138,17 +138,9 @@ x^2+y^2=1
 \item $f^0 = Id:M \rightarrow M, ~~ Id(x) = x$
 \end{itemize}
 
-\textbf{\large{Определение:}} \textbf{Траекторией} точки $x_0 \in M$ называется множество $O_{x_0} = \{f^t(x_0)~|~ t \in \mathbb{R(\mathbb{Z})} \}$. Если $t \in \mathbb{Z}$, то траекторию называют \textbf{орбитой}.\\
+\textbf{\large{Определение:}} \textbf{Траекторией} точки $x_0 \in M$ называется множество $O_{x_0} = \{f^t(x_0)~|~ t \in \mathbb{R(\mathbb{Z}} \}$. Если $t \in \mathbb{Z}$, то траекторию называют \textbf{орбитой}.\\
 
-\textbf{Примеры.} 
-
-
-\begin{wrapfigure}{l}{0.5\textwidth}
-\includegraphics[scale = 0.45]{runner.png} 
-\caption{Бежит человек}
-\end{wrapfigure}
-
-
+\textbf{Пример 1.} 
 $x_t = v_0\cdot t + x_0,$
 
 $~ t\in \mathbb{R};$\\
@@ -156,5 +148,43 @@ $~ t\in \mathbb{R};$\\
 $f^t:\mathbb{R} \rightarrow \mathbb{R};$\\
 
 $f^t(x_0) = v\cdot t.$
+\includegraphics[scale = 0.45]{images/Section 3. Dinamic System/runner}
+\newpage \textbf{Пример 2. Математический маятник без трения} 
+$ (\alpha ,V_x)$
+
+$\alpha \in [-\pi , \pi]$
+
+$0\sim 2\pi$
+$V_x \in \mathbb{R}$
+
+
+\includegraphics[scale=0.5]{images/Section 3. Dinamic System/image12}
+\includegraphics[scale=0.3]{images/Section 3. Dinamic System/image6}
+\newline
+\includegraphics[scale=0.4]{images/Section 3. Dinamic System/image7}
+ \newpage \textbf{Пример 3. Математический маятник с трением.}
+
+
+\includegraphics[scale=0.3]{images/Section 3. Dinamic System/allimage}
+\newline
+\textbf{Определение:} Точка \(x\in M\) называется блуждающей, если \(\exists U(x)\) и \(\exists T : \forall t >T \rightarrow f^t(U(x))\cap U(x) = \varnothing\) 
+\newline В противном случае, точка называется неблуждащей.
+\newline \textbf{Определение:} Объединение неблуждающих точек - неблуждающее множество.
+\newline \textbf{Определение: } Неподвижная точка - точка,траектория которой совпадает с ней (\(O_x = \{x\}\)).
+\newline \textbf{Обозначения: } \(\omega\) - сток (притягивающая неподвижная точка)
+\newline \(\alpha\) - источник (отталкивающая неподвижная точка)
+\newline \textbf{Определение: } \(x \in M\) -периодическая для потока \(f^t\) (каскад f), если \(\exists T > 0: f^T(x)=x \forall \\ 1<t_1 <T  \\ f^{t_1}(x)\neq x\)
+\newline \textbf{Примеры: Каскады}
+\newline \textbf{Обозначение: } \(NB(f)=\{...\}\)- множество неблуждающих точек.
+\\
+\newline 1. \(f(x)= \bar{x}=0,5 x \\ t\in \mathbb{Z}, f^t= \underbrace{f \circ \ldots \circ f}_t\) 
+\newline \includegraphics[scale=0.5]{images/Section 3. Dinamic System/kaskad1.png}
+\\
+\newpage 2. \(f(x)=2x\) 
+\newline \includegraphics[scale=0.5]{images/Section 3. Dinamic System/kaskad2.png}
+\\
+\newline 3. \(f(x)=x+\alpha \\ \alpha \in \mathbb{R}\) 
+\newline \includegraphics[scale=0.5]{images/Section 3. Dinamic System/kaskad3.png}
+
 
 \end{document}

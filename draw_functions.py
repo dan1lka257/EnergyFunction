@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
+from matplotlib.animation import ArtistAnimation
 import numpy as np
 import argparse
+import time
 
 def argparser():
     # defence against fool
@@ -46,6 +48,26 @@ def print_function(n):
     ax2.set_xlim(-radius, radius)
     ax2.set_ylim(-radius, radius)
     ax2.set_zlim(0, max(z3))
+    # making animation
+    frames1 = []
+    frames2 = []
+    for i in range(0, 1000, 10):
+        line1 = ax1.scatter(x1[i], y1[i], color='black', marker='*', s=100)
+        line2 = ax2.scatter(x2[i], y2[i], z3[i], color='black', marker='*', s=100)
+        frames1.append([line1])
+        frames2.append([line2])
+    animation1 = ArtistAnimation(
+        fig,
+        frames1,
+        interval=1000//60,
+        repeat=True
+    )
+    animation2 = ArtistAnimation(
+        fig,
+        frames2,
+        interval=1,
+        repeat=True
+    )
     plt.show()
 
 def isNaturalNumber(num):
