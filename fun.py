@@ -26,7 +26,7 @@ def print_function(n):
     #show 
     ax1.plot(x1,y1,color='blue')
     ax2.plot(x1,y2,z2,color='black',alpha=0.3)
-    ax2.pot(x2,y2,z3,color='blue')
+    ax2.plot(x2,y2,z3,color='blue')
     # beautiful
     ax1.set_xlabel('X',fontweight='bold',fontsize=14)
     ax1.set_ylabel('Y',fontweight='bold',fontsize=14)
