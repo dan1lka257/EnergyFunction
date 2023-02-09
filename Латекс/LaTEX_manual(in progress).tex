@@ -196,7 +196,17 @@ $V_x \in \mathbb{R}$
 \includegraphics[scale=0.5]{picture.jpg}
 \newline \textbf{Определение: } Бесконечный в обе стороны набор точек \(...,x_{-1},x_0,x_1,...\), удовлетворяющий условию \(|x_{k+1} - f(x_k)|<\epsilon\\ \forall k\in \mathbb{Z}\) называется \(\varepsilon\)-траекторией для каскада \(f:M\to M\) 
 \newline \(x_0,...,x_n \in M - \varepsilon\)-цепь для каскада f, если \(|x_k - f(x_{k-1})|<\epsilon\) \(\forall k \in 1,2,...,n\)
-\newline 
+\newline \textbf{Определение:} Точка \(x \in M\) называется цепно-рекурентной для каскада f, если \(\forall \varepsilon >0 \ \exists\) периодическая \(\varepsilon\)-траектория, проходящая через x.\\
+\(\varepsilon\)-траектория - периодическая с преиодом \(T>0\), если \(\forall k\in \mathbb{Z}: \\ x_{k+T} = f^T(x_k)\)\\
+Точка \(x \in M\) - цепно-рекурентная для каскада, если \(\forall \varepsilon >0 \exists \varepsilon\)-цепь, соединяющая x саму с собой, т.е. \(x =x_0,...x_n=x\)
+\newline \textbf{Определение: } Множество всех цепно-рекурентных для каскада называется его цепно-рекурентным множеством и обозначается: \(R_f\).
+\newline \textbf{Пример 1.}
+\\
+\(f: S^1 \to S^1\) 
+\includegraphics[scale=0.3]{stos.png}
+\\
+\(R_f =\{\alpha , \omega\}\)\\Пусть \(\varepsilon = {|f(x)-x|\over {2}}\), тогда \(\forall x_1 \in U_{\varepsilon} (f(x)) \ d(x,x_1)> \varepsilon\) 
+\\ \(d(x,f(x))> 2\varepsilon \Rightarrow d(x,x_2) >\varepsilon \Rightarrow ... \Rightarrow \forall i \ d(x, x_i)> \varepsilon\) 
 
 
 \end{document}
