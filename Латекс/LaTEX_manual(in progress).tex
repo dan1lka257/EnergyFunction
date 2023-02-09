@@ -207,6 +207,28 @@ $V_x \in \mathbb{R}$
 \\
 \(R_f =\{\alpha , \omega\}\)\\Пусть \(\varepsilon = {|f(x)-x|\over {2}}\), тогда \(\forall x_1 \in U_{\varepsilon} (f(x)) \ d(x,x_1)> \varepsilon\) 
 \\ \(d(x,f(x))> 2\varepsilon \Rightarrow d(x,x_2) >\varepsilon \Rightarrow ... \Rightarrow \forall i \ d(x, x_i)> \varepsilon\) 
-
+\newline \textbf{Пример 2.}
+\\ 
+\(f(x)= x -\alpha,\ \alpha>0\)
+\\ \includegraphics[scale=0.3]{stos1.png}
+\\ \(\forall x \ \forall \varepsilon \ \exists \varepsilon\)-цепь : \(x=x_0,...,x_n =x\)
+\newline Пусть  \(x_0,...,x_k: x_k=f(x_{k-1}) \\ d(x_k,\beta)< {\varepsilon \over {2}}\)
+\\
+\(x= x_0,...,x_k,x_{k+1},...,x_{k+m+1}=x_n=x\)
+\\
+\(d(x_k, \beta) <{\varepsilon \over {2}} , d(x_{k+1},\beta)< {\varepsilon \over {2}} \Rightarrow d(x_k,x_{k+1})< \varepsilon \\ \Rightarrow d(f(x_k), x_{k+1})<\varepsilon\)
+\\
+\(R_f =S^1\)
+\newline \textbf{Пример 3.}
+\\
+\includegraphics[scale=0.3]{circle.png}
+Рассмотрим окружномть длиной \(l=1\) и функцией \(f(x)= (x+\alpha) mod 1\) \\
+1. \(\alpha \in \mathbb{Q} \Rightarrow\) все точки периодические и \(R_f = S^1\)
+\\ \(f^k(x)= (x+k\alpha)mod 1, \ k={m \over {n}} \Rightarrow f^n(x) = (x + {mn\over {n}})mod 1 = x \ \Rightarrow x,f(x),..., f^n(x) - \varepsilon\)-цепь, соединяющая x саму с собой. \\
+2. \(\alpha \in \mathbb{R} / \mathbb{Q}\)\\
+Докажем всюдуплотность: от противного \\ Пусть длина интервала (a,b) максимальная, в которую не попадает траектория точки x. 
+\\ \(f^l((a,b))\cap O_x =\emptyset \ \forall l \in \mathbb{Z}\) 
+\\ С какого- то момента интервал пересечёт сам себя. Объединение пересечений отображения интервала больше длины l \(\Rightarrow\) Длина интервала (a,b) не максимальная \(\Rightarrow\) траектория всюдуплотна. 
+\\ \(\forall \varepsilon \ d(a,b)<{\varepsilon \over {2}} \\ x=x_0,f(x)=x_1, ... f^n(x)=x_n \in [a,b]\)\\ \(d(x,f^n(x)<\varepsilon)\)
 
 \end{document}
