@@ -230,5 +230,27 @@ $V_x \in \mathbb{R}$
 \\ \(f^l((a,b))\cap O_x =\emptyset \ \forall l \in \mathbb{Z}\) 
 \\ С какого- то момента интервал пересечёт сам себя. Объединение пересечений отображения интервала больше длины l \(\Rightarrow\) Длина интервала (a,b) не максимальная \(\Rightarrow\) траектория всюдуплотна. 
 \\ \(\forall \varepsilon \ d(a,b)<{\varepsilon \over {2}} \\ x=x_0,f(x)=x_1, ... f^n(x)=x_n \in [a,b]\)\\ \(d(x,f^n(x)<\varepsilon)\)
+\\
+\\
+Выясним, в каком отношении находятся множества \(R_f\) и \(NW(f)\).
+\newline Пусть \(f: M \to M\) - гомеоморфизм.\\
+\(\forall r \in R_f \Rightarrow \ \forall \varepsilon >0 \exists \varepsilon\)-траектория, прохлдящая через т. r.
+\\
+\(\forall x_0 \in NW(f) \Rightarrow \forall U(x_0) \ \exists t \i\mathbb{N} : f^t(U(x_0))\cap U(x_0)\neq \emptyset\) \\
+Предположим, что \(R_f \supset NW(f)\) \\
+Рассмотрим \(x_0 \in NW(f)\) и покажем что \(f(x_0)\) - неблуждающая. \\
+\includegraphics[scale=0.3]{NW.png}\\
+Обозначим \(f(x_0) = y_0\)\\
+Докажем, что \(\forall A \supset y_0 \ \exists t^1 : f^{t^1}\cap A \neq \emptyset\)\\
+\(f^{-1}(A)\) - окрестность точки \(x_0\)\\
+\( \exists t : f^t(f^{-1}(A))\cap f^{-1}(A) \neq \emptyset\) , где \(f^t(f^{-1}(A)) = f^{t-1}(A)\)
+\\
+Таким образом, \(f(f{t-1}(A)) \cap A \neq \emptyset\) т.е.\(t^1 = t\)\\
+\(f^{-1}(A) \cap f^{t-1}(A) \neq \emptyset \ \Rightarrow \exists x^1 \in f^{t-1}(A) \cap f^{-1}(A): f(x^1)\in f^t(A) и f(x^1)\in A \ \Rightarrow f(x_0)\)- неблуждающая. \\
+Далее, рассмотрим \(U_\varepsilon (x_0)\) . Так как \(f(x_0)=y_0\)-неблуждающая, то \(\forall U(y_0) \ \exists t\in \mathbb{N}: f^t(U(y_0))\cap U(y_0) \neq \emptyset\)\\
+\( \exists y^1\in U(y_0): f^t(y^1)\in U(y_0)\)\\
+Пусть \(U(y_0)=f(U_\varepsilon (x_0))\) \\
+Составим \(\varepsilon\)-цепь: \\
+\(x_0,x_1 = y^1,x_2 = f(y^1),..., \)
 
 \end{document}
