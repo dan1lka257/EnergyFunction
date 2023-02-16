@@ -251,6 +251,20 @@ $V_x \in \mathbb{R}$
 \( \exists y^1\in U(y_0): f^t(y^1)\in U(y_0)\)\\
 Пусть \(U(y_0)=f(U_\varepsilon (x_0))\) \\
 Составим \(\varepsilon\)-цепь: \\
-\(x_0,x_1 = y^1,x_2 = f(y^1),..., \)
+\(x_0,x_1 = y^1,x_2 = f(y^1),...,x_n=x_0 \)\\
+\(d(x_2,f(x_1))<\varepsilon \ (d(x_2,f(x_1))=0)\)
+\includegraphics[scale=0.3]{NW2.png}\\
+Таким образом, \(R_f\supset NW(f)\)\\
+Обратное не верно! \\
+Пример: \(R_f = S^1 \ NW(f)=\{\beta\}\)- крошка. Окрастность копится к \(\beta\), но не перескочит ёё, но с помощью \(\varepsilon\)-траектории можно это сделать. 
+\newpage
+\section*{Функция Ляпунова}
+ Пусть \(f:M \to M\)-гомеоморфизм.\\
+\textbf{Определение: }Функция \(\phi:M \to \mathbb{R}\) называется функцией Ляпунова для каскада \(f\), если:\\
+1. \(\phi\)-непрерывна.\\
+2. \(\phi(f(x))<\phi(x), x \notin R_f\)\\
+3. \(\phi(x)=\phi(y) \Leftrightarrow x,y \in R_f\) и \(x\sim y,\)т.е. \(\forall \varepsilon >0 \exists \varepsilon\)-цепи, соединяющие x с y и y c x.\\
+4. \(\phi(R_f)\)- нигде не плотное подмножество \(\mathbb{R}\)\\
+\(\forall U\in \mathbb{R}\) (U-открытое) \(\exists V \subset U\) (V-открытое): \(V\cap \phi(R_f)=\emptyset\)
 
 \end{document}
