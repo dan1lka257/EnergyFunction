@@ -266,5 +266,37 @@ $V_x \in \mathbb{R}$
 3. \(\phi(x)=\phi(y) \Leftrightarrow x,y \in R_f\) и \(x\sim y,\)т.е. \(\forall \varepsilon >0 \exists \varepsilon\)-цепи, соединяющие x с y и y c x.\\
 4. \(\phi(R_f)\)- нигде не плотное подмножество \(\mathbb{R}\)\\
 \(\forall U\in \mathbb{R}\) (U-открытое) \(\exists V \subset U\) (V-открытое): \(V\cap \phi(R_f)=\emptyset\)
+Рассмотрим условие 3.\\
+\(x \sim y\),если \(\forall \varepsilon >0 \ \exists \varepsilon\)-цепь, соединяющая х с у и у с х.\\
+\(x,y \in R_f\) \\
+\textbf{Пример}\\
+\includegraphics[scale=0.3]{crr.png}\\
+\(R_f = \{\alpha, \omega\} \\ \alpha \nsim \omega\) т.к. из любой \(\varepsilon\) окрестности \(\omega\) точка будет "сваливаться" обратно к \(\omega\), так никогда не попав в \(\alpha\).\\
+\textbf{Пример}\\
+\includegraphics[scale=0.3]{cr.png}\\
+\(R_f = S^1 \\ \forall x,y \in S^1: \ x\sim y\) и \(y\sim x\) \\
+Таким образом, \(R_f\) разбивается на классы эквивалетности, называемые \textbf{цепными компонентами}.
+\newpage
+\textbf{Пример.}\\
+\includegraphics[scale=0.3]{lyap.png}\\
+\(f(x)=0.5x \ f:\mathbb{R}\to \mathbb{R} \ R_f=\{0\}\)\\
+\textbf{Замечание:} Не обязана быть монотонной.\\
+\textbf{Определение: }Энергетическая функция \(\phi: M \to \mathbb{R}\) для каскада \(f:M \to M\) - это гладкая функция Ляпунова, множество критических точек котрорй совпадают с цепно-рекурентном множеством f. \\
+\textbf{Определение: } Точка \(x_0\in M\) называется критической для гладкой функции \(f: M \in \mathbb{R}\), если \(grad f(x_0)=0\).\\
+\(f:\mathbb{R}^n \to \mathbb{R}\)\\
+\({\partial f\over {\partial x_i}} = \lim \limits_{\Delta x\to 0}\frac{f(x_1,x_2,...,x_i +\Delta x,x_{i+1},...,x_n)-f(x_1,...,x_n)}{\Delta x}\)
+\begin{equation*}
+grad\ f= 
+\begin{pmatrix}
+\partial f\over {\partial x_1}\\
+.\\
+.\\
+.\\
+\partial f\over {\partial x_n}
+\end{pmatrix}
+\end{equation*}
+\(f: \mathbb{R}\to \mathbb{R}\)
+\(f(x)=\frac{x}{2}\)\\
+\includegraphics[scale=0.3]{din.png}
 
 \end{document}
