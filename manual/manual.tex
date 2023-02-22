@@ -16,8 +16,7 @@
 
 \section*{Гомеоморфизм}
 
-Пусть $M,N \subset \mathbb{R}^{n}.$ $f:M\longrightarrow N$ -- отображение\footnote{Отображение $f:M\rightarrow N$ -- закон, который каждому элементу $x \in M$ ставит в  соответствие единственный элемент $y \in N.$}.\\
-
+Пусть $M,N \subset \mathbb{R}^{n}.$ $f:M\longrightarrow N$ -- отображение\footnote{Отображение $f:M\rightarrow N$ -- закон, который каждому элементу $x \in M$ ставит в  соответствие единственный элемент $y \in N.$}. \\
 
 Отображение $f$ \textit{непрерывно в точке $a$}, тогда и только тогда, когда 
 		\[\lim_{x \to a}{f(x)} = f(a)\]
@@ -38,14 +37,12 @@
 		(\forall x\in B_{\delta_{\varepsilon}}(a)
 		\Rightarrow \rho(f(x),f(a))<\varepsilon),
 		\footnote{
-			Здесь ~
-			$B_{\delta_{\varepsilon}} = 
+			Здесь $B_{\delta_{\varepsilon}} = 
 			\{y\in \mathbb{R}^n | ~ \rho(y,a) <
 			\delta_{\varepsilon}\}$,
-			а ~
-			$\rho(x,y) = \sqrt{\sum_{i=1}^n(x_i - y_i)^2}$
-				}
-	\]	
+			а $\rho(x,y) = \sqrt{\sum_{i=1}^n(x_i - y_i)^2}$
+		}
+	\]
 	
 	
 	\textbf{По Гейне:}
@@ -75,7 +72,7 @@
 	\newpage
 \section*{Многообразие}
 
-Пусть \(M \subset \mathbb{R}^n\) такое, что \(\exists k\in \mathbb{N}\), $\forall \varepsilon >0$:
+Пусть \(M \subset \mathbb{R}^n\) такое, что $\exists k\in \mathbb{N}, \forall \varepsilon >0$:
 \begin{center}
  \textit{либо} \(U_{\varepsilon} (x)\cap M \cong \mathbb{R}^k\),
 \end{center}
@@ -84,14 +81,14 @@
 \end{center}
 \textit{где} \(\mathbb{R}_{+}^k = \{(x_1,x_2,...,x_k)|~ x_1,..., x_{k-1} \in \mathbb{R}, x_k\ge 0\}\)
 \newline в этом случае M является \underline{\textbf{многообразием}} размерности k.
-\newline Если \(\nexists\) окрестности \(U_{\varepsilon} (x): U_{\varepsilon} (x)\cap M \cong \mathbb{R}^k\), то \(x\) - \textbf{граничная точка}, иначе \(х\)- \textbf{внутренняя точка}.
-\newline Если множество граничных точек пустое (\(\emptyset\)), то \(M\)- многообразие \textbf{без края}, в противном случае \textbf{с краем}.
+\newline Если $\nexists$ окрестности $U_{\varepsilon} (x): U_{\varepsilon} (x)\cap M \cong \mathbb{R}^k$, то $x$ - \textbf{граничная точка}, иначе \(х\)- \textbf{внутренняя точка}.
+\newline Если множество граничных точек пустое (\(\emptyset\)), то $M$- многообразие \textbf{без края}, в противном случае \textbf{с краем}.
 \newline \textbf{Примеры:}
 \newline 1. Диск: $D^1 = \{(x,y) \in \mathbb{R}^2 |~ x^2 + y^2 < 1 \} $
-\newline \includegraphics[scale=0.7]{images/Section 2. Manifold/image1}
-\newline 2. Окружность: \(S^1 = \{(x,y)\in \mathbb{R}^2|~ x^2 + y^2 =1\}\) 
+\newline \includegraphics[scale=1]{images/Section 2. Manifold/image1}
+\newpage 2. Окружность: \(S^1 = \{(x,y)\in \mathbb{R}^2|~ x^2 + y^2 =1\}\) 
 \newline \includegraphics[scale=0.85]{images/Section 2. Manifold/image2}
-\newpage 3. Сфера: \(S^2 = \{(x,y,z)\in\mathbb{R}^3|~ x^2+y^2+z^2=1\}\)
+\newline 3. Сфера: \(S^2 = \{(x,y,z)\in\mathbb{R}^3|~ x^2+y^2+z^2=1\}\)
 \newline \includegraphics[scale=0.5]{images/Section 2. Manifold/image3}
 \newline 4. Тор. Рассматриваем как поворот единичной окружности вокруг оси Oz.
 \(T=\{(x,y,z)\in \mathbb{R}^3\)|
@@ -104,8 +101,7 @@ x =0
 \end{equation*}
 \includegraphics[scale=0.5]{images/Section 2. Manifold/image4}\\
 
-5. Цилиндр.
-\newline \(C = \{(x,y,z)\in \mathbb{R}^3\)|
+\newpage 5. Цилиндр \(C = \{(x,y,z)\in \mathbb{R}^3\)|
 \begin{equation*}
 \begin{cases}
 x^2+y^2=1
@@ -129,13 +125,13 @@ x^2+y^2=1
 Если $X = \mathbb{R}$, то ДС называется \textbf{потоком} (непрерывная ДС).
 Если $X = \mathbb{Z}$, то ДС называется \textbf{каскадом} (дискретная ДС).\\
 
-Динамическая система $f:M\times X: \rightarrow M$ определяет семейство гомеоморфизмов $\{ f^t~|~ t \in \mathbb{R}(\mathbb{Z}) \}$ на M, где $f^t(x) \equiv f(x,t)$. \\
+Динамическая система $f:M\times X \rightarrow M$ определяет семейство гомеоморфизмов $\{ f^t~|~ t \in \mathbb{R}(\mathbb{Z}) \}$ на M, где $f^t(x) \equiv f(x,t)$. \\
 
 Если $t \in \mathbb{Z}$, то
 \begin{itemize}
 \item при $t > 0 \qquad f^t = \underbrace{f \circ \ldots \circ f}_t$;
 \item при $t < 0 \qquad f^t = \underbrace{f^{-1} \circ \ldots \circ f^{-1}}_t$;
-\item $f^0 = Id:M \rightarrow M, ~~ Id(x) = x$
+\item $f^0 = Id:M \rightarrow M, ~ Id(x) = x$
 \end{itemize}
 
 \textbf{\large{Определение:}} \textbf{Траекторией} точки $x_0 \in M$ называется множество $O_{x_0} = \{f^t(x_0)~|~ t \in \mathbb{R(\mathbb{Z}} \}$. Если $t \in \mathbb{Z}$, то траекторию называют \textbf{орбитой}.\\

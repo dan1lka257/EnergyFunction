@@ -1,19 +1,12 @@
 import matplotlib.pyplot as plt
 from matplotlib.animation import ArtistAnimation
 import numpy as np
-import argparse
-import time
-
-def argparser():
-    # defence against fool
-    parser = argparse.ArgumentParser(description='Enter a natural number to draw a graph of the form y = x^n')
-    parser.add_argument('number', type=int, help='Natural number')
-    args = parser.parse_args()
-    return args
+import tkinter as tk
+from tkinter import ttk
 
 def print_function(n):
     # figure and axes
-    fig = plt.figure(num=2, figsize=(12, 6))
+    fig = plt.figure(figsize=(12, 6))
     ax1 = fig.add_subplot(1, 2, 1)
     ax2 = fig.add_subplot(1, 2, 2, projection='3d')
     radius = 1
@@ -65,18 +58,40 @@ def print_function(n):
     animation2 = ArtistAnimation(
         fig,
         frames2,
-        interval=1,
+        interval=1000//60,
         repeat=True
     )
     plt.show()
 
-def isNaturalNumber(num):
+def isNaturalNumber():
     # Naturality check
-    if num > 0:
+    try:
+        num = int(entry_1.get())
+    except:
+        num = -1
+    if num > 0 and isinstance(num, int) and combo_1.get() == '|x - 0.5| ^ n':
         print_function(num)
     else:
         print('Natural Numbers contains only positive integers such as 1, 2, 3, 4, 5, 6, and so on.')
 
 
-num = argparser().number
-isNaturalNumber(num)
+win = tk.Tk()
+photo = tk.PhotoImage(file='icon.png')
+win.iconphoto(False, photo)
+win.title('Graph application')
+win.config(bg='white')
+win.geometry('500x300+1000+150')
+win.resizable(False, False)
+
+types_of_graphics = ['|x - 0.5| ^ n', '1', '2', '3', '4']
+combo_1 = ttk.Combobox(win, values=types_of_graphics)
+button_1 = tk.Button(win, text='Draw', command=isNaturalNumber)
+entry_1 = tk.Entry(win)
+combo_1.grid(row=0, column=0)
+entry_1.grid(row=1, column=0)
+button_1.grid(row=2, column=0)
+
+win.grid_columnconfigure(0, minsize=80)
+win.grid_columnconfigure(1, minsize=80)
+
+win.mainloop()
