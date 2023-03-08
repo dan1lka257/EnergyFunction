@@ -48,11 +48,11 @@ def firstFunctionStart():
         scat1 = ax1.scatter(x1[kmod], y1[kmod], color='black', marker='*')
         canvas.draw()
         k += 10
-        if combo_2.get() == 'Yes':
+        if combo_2.get() == 'No':
             scat1.remove()
             if k >= 1000:
                 k %= 1000
-        if combo_2.get() == 'No':
+        if combo_2.get() == 'Yes':
             if k >= 1000:
                 return 0
         if button_1['state'] == tk.NORMAL: return 0
@@ -86,12 +86,12 @@ def secondFunctionStart():
         scat1 = ax1.scatter(x1[kmod], y1[kmod], color='black', marker='*')
         canvas.draw()
         k += 10
-        if combo_2.get() == 'Yes':
+        if combo_2.get() == 'No':
             scat1.remove()
             if k >= 100000:
                 scat1 = []
                 k %= 100000
-        if combo_2.get() == 'No':
+        if combo_2.get() == 'Yes':
             if k >= 100000:
                 return 0
         if button_1['state'] == tk.NORMAL: return 0
@@ -127,12 +127,12 @@ def thirdFunctionStart():
         scat1 = ax1.scatter(x1[kmod], y1[kmod], color='black', marker='*')
         canvas.draw()
         k += 25
-        if combo_2.get() == 'Yes':
+        if combo_2.get() == 'No':
             scat1.remove()
             if k >= 10000:
                 scat1 = []
                 k %= 10000
-        if combo_2.get() == 'No':
+        if combo_2.get() == 'Yes':
             if k >= 10000:
                 return 0
         if button_1['state'] == tk.NORMAL: return 0
@@ -169,14 +169,14 @@ def fourthFunctionStart():
         scat2 = ax1.scatter(x2[kmod], y1[kmod], color='black', marker='*')
         canvas.draw()
         k += 50
-        if combo_2.get() == 'Yes':
+        if combo_2.get() == 'No':
             scat1.remove()
             scat2.remove()
             if k >= 10000:
                 scat1 = []
                 scat2 = []
                 k %= 10000
-        if combo_2.get() == 'No':
+        if combo_2.get() == 'Yes':
             if k >= 10000:
                 return 0
         if button_1['state'] == tk.NORMAL: return 0
@@ -226,7 +226,7 @@ combo_1.current(0)
 combo_2.current(0)
 button_2['state'] = tk.DISABLED
 tk.Label(win, text='Choose graph: ', bg='white', anchor='e').grid(row=0, column=0, stick='we')
-tk.Label(win, text='One moving dot? ', bg='white', anchor='e').grid(row=1, column=0, stick='we')
+tk.Label(win, text='Save last position? ', bg='white', anchor='e').grid(row=1, column=0, stick='we')
 win.grid_columnconfigure(0, minsize=100)
 win.grid_columnconfigure(1, minsize=270)
 
