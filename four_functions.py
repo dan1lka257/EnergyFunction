@@ -166,12 +166,15 @@ def fourthFunctionStart():
         nonlocal k
         kmod = k % 10000
         scat1 = ax1.scatter(x1[kmod], y1[kmod], color='black', marker='*')
+        scat2 = ax1.scatter(x2[kmod], y1[kmod], color='black', marker='*')
         canvas.draw()
         k += 50
         if combo_2.get() == 'Yes':
             scat1.remove()
+            scat2.remove()
             if k >= 10000:
                 scat1 = []
+                scat2 = []
                 k %= 10000
         if combo_2.get() == 'No':
             if k >= 10000:
