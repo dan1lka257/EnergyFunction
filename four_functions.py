@@ -24,39 +24,86 @@ def start_application():
         thirdFunctionStart()
     if combo_1.get() == types_of_graphics[3]:
         fourthFunctionStart()
+    if combo_1.get() == types_of_graphics[4]:
+        fifthFunctionStart()
+    if combo_1.get() == types_of_graphics[5]:
+        sixthFunctionStart()
+    if combo_1.get() == types_of_graphics[6]:
+        seventhFunctionStart()
 
 def firstFunctionStart():
     # figure and axes
-    fig = Figure(figsize=(6, 4))
-    ax1 = fig.add_subplot(1, 1, 1)
-    p = 2 * np.pi * np.linspace(0, 1, 1000)
-    x0 = 1 * np.cos(p)
-    y0 = 1 * np.sin(p)
-    ax1.plot(x0, y0, color='black')
-    t = 3/5 * 2 * np.pi * np.linspace(0, 200, 10000)
+    dim = 10000
+    per = 1000
+    fig = Figure(figsize=(12, 4))
+    ax1 = fig.add_subplot(1, 2, 1)
+    ax2 = fig.add_subplot(1, 2, 2, projection='3d')
+    # fake round
+    alpha = np.linspace(0, 2 * np.pi, dim)
+    x0 = np.cos(alpha)
+    y0 = np.sin(alpha)
+    # 2d axes
+    t = 3/5 * 2 * np.pi * np.linspace(0, 200, dim)
     x1 = 1 * np.cos(t)
     y1 = 1 * np.sin(t)
+    # 3d axes
+    z2 = np.linspace(0, 0, dim)
+    z3 = np.linspace(1/2, 1/2, dim)
+    # print all of axes
+    ax1.plot(x0, y0, color='gray')
+    ax2.plot(x0, y0, z2, color='black', alpha=0.5)
+    ax2.plot(x0, y0, z3, color='black')
+    # move coordinate axes into center
+    ax1.spines['bottom'].set_position(('data',0))
+    ax1.spines['left'].set_position(('data',0))
+    ax1.spines['top'].set_visible(False)
+    ax1.spines['right'].set_visible(False)
     # text marks on the axes
     ax1.set_xlabel('X', fontsize=14)
     ax1.set_ylabel('Y', fontsize=14)
-    ax1.set_title(combo_1.get(), fontweight = 'bold', fontsize=16)
+    ax1.set_title('', fontweight = 'bold', fontsize=16)
+    ax2.set_xlabel('X', fontsize=14)
+    ax2.set_ylabel('Y', fontsize=14)
+    ax2.set_zlabel('Z', fontsize=14)
+    ax2.set_title('Lyapunov function', fontsize=16)
     ax1.axis('off')
+    ax2.axis('off')
+    # limiting 3d axes
+    ax2.set_xlim(-1, 1)
+    ax2.set_ylim(-1, 1)
+    ax2.set_zlim(0, max(z3))
     k = 1
     def running_dot():
         nonlocal k
-        kmod = k % 1000
+        kmod = k % dim
+        newkmod = (kmod + dim//per) % dim
+
         scat1 = ax1.scatter(x1[kmod], y1[kmod], color='black', marker='*')
+        scat2 = ax2.scatter(x1[kmod], y1[kmod], z3[kmod], color='black', marker='*')
+        scat3 = ax2.scatter(x1[kmod], y1[kmod], z2[kmod], color='black', marker='*')
+
+        red_scat1 = ax1.scatter(x1[newkmod], y1[newkmod], color='red', marker='*')
+        red_scat2 = ax2.scatter(x1[newkmod], y1[newkmod], z3[newkmod], color='red', marker='*')
+        red_scat3 = ax2.scatter(x1[newkmod], y1[newkmod], z2[newkmod], color='red', marker='*')
+        
         canvas.draw()
-        k += 10
+
+        red_scat1.remove()
+        red_scat2.remove()
+        red_scat3.remove()
+
+        k += dim//per
         if combo_2.get() == 'No':
             scat1.remove()
-            if k >= 1000:
-                k %= 1000
+            scat2.remove()
+            scat3.remove()
+            if k >= dim:
+                k %= dim
         if combo_2.get() == 'Yes':
-            if k >= 1000:
+            if k >= dim:
                 return 0
         if button_1['state'] == tk.NORMAL: return 0
-        win.after(20, running_dot)
+        win.after(10, running_dot)
     # create FigureCanvasTkAgg object
     canvas = FigureCanvasTkAgg(fig, win)
     canvas.get_tk_widget().grid(row=0, column=2, rowspan=2000, stick='n')
@@ -65,37 +112,77 @@ def firstFunctionStart():
 
 def secondFunctionStart():
     # figure and axes
-    fig = Figure(figsize=(6, 4))
-    ax1 = fig.add_subplot(1, 1, 1)
-    p = 2 * np.pi * np.linspace(0, 1, 1000)
-    x0 = 1 * np.cos(p)
-    y0 = 1 * np.sin(p)
-    ax1.plot(x0, y0, color='black')
-    t = 2 * np.pi * np.linspace(0, 2000, 100000) * np.sqrt(2)
+    dim = 10000
+    per = 3000
+    fig = Figure(figsize=(12, 4))
+    ax1 = fig.add_subplot(1, 2, 1)
+    ax2 = fig.add_subplot(1, 2, 2, projection='3d')
+    # fake round
+    alpha = np.linspace(0, 2 * np.pi, dim)
+    x0 = np.cos(alpha)
+    y0 = np.sin(alpha)
+    # 2d axes
+    t = np.sqrt(2) * 2 * np.pi * np.linspace(0, 200, dim)
     x1 = 1 * np.cos(t)
     y1 = 1 * np.sin(t)
+    # 3d axes
+    z2 = np.linspace(0, 0, dim)
+    z3 = np.linspace(1/2, 1/2, dim)
+    # print all of axes
+    ax1.plot(x0, y0, color='gray')
+    ax2.plot(x0, y0, z2, color='black', alpha=0.5)
+    ax2.plot(x0, y0, z3, color='black')
+    # move coordinate axes into center
+    ax1.spines['bottom'].set_position(('data',0))
+    ax1.spines['left'].set_position(('data',0))
+    ax1.spines['top'].set_visible(False)
+    ax1.spines['right'].set_visible(False)
     # text marks on the axes
     ax1.set_xlabel('X', fontsize=14)
     ax1.set_ylabel('Y', fontsize=14)
-    ax1.set_title(combo_1.get(), fontweight = 'bold', fontsize=16)
+    ax1.set_title('', fontweight = 'bold', fontsize=16)
+    ax2.set_xlabel('X', fontsize=14)
+    ax2.set_ylabel('Y', fontsize=14)
+    ax2.set_zlabel('Z', fontsize=14)
+    ax2.set_title('Lyapunov function', fontsize=16)
     ax1.axis('off')
+    ax2.axis('off')
+    # limiting 3d axes
+    ax2.set_xlim(-1, 1)
+    ax2.set_ylim(-1, 1)
+    ax2.set_zlim(0, max(z3))
     k = 1
     def running_dot():
         nonlocal k
-        kmod = k % 100000
+        kmod = k % dim
+        newkmod = (kmod + dim//per) % dim
+
         scat1 = ax1.scatter(x1[kmod], y1[kmod], color='black', marker='*')
+        scat2 = ax2.scatter(x1[kmod], y1[kmod], z3[kmod], color='black', marker='*')
+        scat3 = ax2.scatter(x1[kmod], y1[kmod], z2[kmod], color='black', marker='*')
+
+        red_scat1 = ax1.scatter(x1[newkmod], y1[newkmod], color='red', marker='*')
+        red_scat2 = ax2.scatter(x1[newkmod], y1[newkmod], z3[newkmod], color='red', marker='*')
+        red_scat3 = ax2.scatter(x1[newkmod], y1[newkmod], z2[newkmod], color='red', marker='*')
+        
         canvas.draw()
-        k += 10
+
+        red_scat1.remove()
+        red_scat2.remove()
+        red_scat3.remove()
+
+        k += dim//per
         if combo_2.get() == 'No':
             scat1.remove()
-            if k >= 100000:
-                scat1 = []
-                k %= 100000
+            scat2.remove()
+            scat3.remove()
+            if k >= dim:
+                k %= dim
         if combo_2.get() == 'Yes':
-            if k >= 100000:
+            if k >= dim:
                 return 0
         if button_1['state'] == tk.NORMAL: return 0
-        win.after(20, running_dot)
+        win.after(10, running_dot)
     # create FigureCanvasTkAgg object
     canvas = FigureCanvasTkAgg(fig, win)
     canvas.get_tk_widget().grid(row=0, column=2, rowspan=2000, stick='n')
@@ -104,39 +191,78 @@ def secondFunctionStart():
 
 def thirdFunctionStart():
     # figure and axes
-    fig = Figure(figsize=(6, 4))
-    ax1 = fig.add_subplot(1, 1, 1)
-    p = 2 * np.pi * np.linspace(0, 1, 1000)
-    x0 = 1 * np.cos(p)
-    y0 = 1 * np.sin(p) + 1
-    ax1.plot(x0, y0, color='black')
-    # figure and axes
-    t = np.linspace(-100, 100, 10000)
-    alpha = np.pi - 2 * np.arctan(t / 2)
-    x1 = np.sin(alpha)
-    y1 = np.cos(alpha) + 1
+    dim = 10000
+    per = 100
+    fig = Figure(figsize=(12, 4))
+    ax1 = fig.add_subplot(1, 2, 1)
+    ax2 = fig.add_subplot(1, 2, 2, projection='3d')
+    # fake round
+    alpha = np.linspace(0, 2 * np.pi, dim)
+    x0 = np.cos(alpha)
+    y0 = np.sin(alpha) + 1
+    # 2d axes
+    t = np.linspace(-100, 100, dim)
+    beta = np.pi - 2 * np.arctan(t / 2)
+    x1 = np.sin(beta)
+    y1 = np.cos(beta) + 1
+    # 3d axes
+    z2 = np.linspace(0, 0, dim)
+    z3 = np.linspace(1/2, 1/2, dim)
+    # print all of axes
+    ax1.plot(x0, y0, color='gray')
+    ax2.plot(x0, y0, z2, color='black', alpha=0.5)
+    ax2.plot(x0, y0, z3, color='black')
+    # move coordinate axes into center
+    ax1.spines['bottom'].set_position(('data',0))
+    ax1.spines['left'].set_position(('data',0))
+    ax1.spines['top'].set_visible(False)
+    ax1.spines['right'].set_visible(False)
     # text marks on the axes
     ax1.set_xlabel('X', fontsize=14)
     ax1.set_ylabel('Y', fontsize=14)
-    ax1.set_title(combo_1.get(), fontweight = 'bold', fontsize=16)
+    ax1.set_title('', fontweight = 'bold', fontsize=16)
+    ax2.set_xlabel('X', fontsize=14)
+    ax2.set_ylabel('Y', fontsize=14)
+    ax2.set_zlabel('Z', fontsize=14)
+    ax2.set_title('Lyapunov function', fontsize=16)
     ax1.axis('off')
+    ax2.axis('off')
+    # limiting 3d axes
+    ax2.set_xlim(-1, 1)
+    ax2.set_ylim(-1, 1)
+    ax2.set_zlim(0, max(z3))
     k = 1
     def running_dot():
         nonlocal k
-        kmod = k % 10000
+        kmod = k % dim
+        newkmod = (kmod + dim//per) % dim
+
         scat1 = ax1.scatter(x1[kmod], y1[kmod], color='black', marker='*')
+        scat2 = ax2.scatter(x1[kmod], y1[kmod], z3[kmod], color='black', marker='*')
+        scat3 = ax2.scatter(x1[kmod], y1[kmod], z2[kmod], color='black', marker='*')
+
+        red_scat1 = ax1.scatter(x1[newkmod], y1[newkmod], color='red', marker='*')
+        red_scat2 = ax2.scatter(x1[newkmod], y1[newkmod], z3[newkmod], color='red', marker='*')
+        red_scat3 = ax2.scatter(x1[newkmod], y1[newkmod], z2[newkmod], color='red', marker='*')
+        
         canvas.draw()
-        k += 25
+
+        red_scat1.remove()
+        red_scat2.remove()
+        red_scat3.remove()
+
+        k += dim//per
         if combo_2.get() == 'No':
             scat1.remove()
-            if k >= 10000:
-                scat1 = []
-                k %= 10000
+            scat2.remove()
+            scat3.remove()
+            if k >= dim:
+                k %= dim
         if combo_2.get() == 'Yes':
-            if k >= 10000:
+            if k >= dim:
                 return 0
         if button_1['state'] == tk.NORMAL: return 0
-        win.after(20, running_dot)
+        win.after(30, running_dot)
     # create FigureCanvasTkAgg object
     canvas = FigureCanvasTkAgg(fig, win)
     canvas.get_tk_widget().grid(row=0, column=2, rowspan=2000, stick='n')
@@ -145,42 +271,481 @@ def thirdFunctionStart():
 
 def fourthFunctionStart():
     # figure and axes
-    fig = Figure(figsize=(6, 4))
-    ax1 = fig.add_subplot(1, 1, 1)
-    p = 2 * np.pi * np.linspace(0, 1, 1000)
-    x0 = 1 * np.cos(p)
-    y0 = 1 * np.sin(p)
-    ax1.plot(x0, y0, color='black')
-    t = np.linspace(10, -10, 10000)
-    alpha = np.arctan(t)
-    x1 = np.cos(alpha)
-    y1 = np.sin(alpha)
-    x2 = -np.cos(alpha)
+    dim = 10000
+    per = 100
+    fig = Figure(figsize=(12, 4))
+    ax1 = fig.add_subplot(1, 2, 1)
+    ax2 = fig.add_subplot(1, 2, 2, projection='3d')
+    # fake round
+    alpha = np.linspace(0, 2 * np.pi, dim)
+    x0 = np.sin(alpha)
+    y0 = np.cos(alpha)
+    # 2d axes
+    t = np.linspace(10, -10, dim)
+    beta = np.arctan(t)
+    x1 = np.cos(beta)
+    y1 = np.sin(beta)
+    x2 = -np.cos(beta)
+    # 3d axes
+    z2 = np.linspace(0, 0, dim)
+    z3 = np.sin(np.linspace(-np.pi, np.pi, dim) + np.pi/2) + 1
+    z4 = np.sin(beta + np.pi) + 1
+    z5 = np.sin(beta - 3 * np.pi) + 1
+    # print all of axes
+    ax1.plot(x0, y0, color='gray')
+    ax2.plot(x0, y0, z2, color='black', alpha=0.5)
+    ax2.plot(x0, y0, z3, color='black')
+    # move coordinate axes into center
+    ax1.spines['bottom'].set_position(('data',0))
+    ax1.spines['left'].set_position(('data',0))
+    ax1.spines['top'].set_visible(False)
+    ax1.spines['right'].set_visible(False)
     # text marks on the axes
     ax1.set_xlabel('X', fontsize=14)
     ax1.set_ylabel('Y', fontsize=14)
-    ax1.set_title(combo_1.get(), fontweight = 'bold', fontsize=16)
+    ax1.set_title('', fontweight = 'bold', fontsize=16)
+    ax2.set_xlabel('X', fontsize=14)
+    ax2.set_ylabel('Y', fontsize=14)
+    ax2.set_zlabel('Z', fontsize=14)
+    ax2.set_title('Lyapunov function', fontsize=16)
     ax1.axis('off')
+    ax2.axis('off')
+    # limiting 3d axes
+    ax2.set_xlim(-1, 1)
+    ax2.set_ylim(-1, 1)
+    ax2.set_zlim(0, max(z4))
     k = 1
+    counter = 1
     def running_dot():
-        nonlocal k
-        kmod = k % 10000
-        scat1 = ax1.scatter(x1[kmod], y1[kmod], color='black', marker='*')
-        scat2 = ax1.scatter(x2[kmod], y1[kmod], color='black', marker='*')
+        nonlocal k, counter
+        kmod = k % dim
+        newkmod = (kmod + dim//per) % dim
+
+
+        
+        if counter % 2 == 1:
+            scat1 = ax1.scatter(x1[kmod], y1[kmod], color='black', marker='*')
+            scat2 = ax2.scatter(x1[kmod], y1[kmod], z4[kmod], color='black', marker='*')
+            scat3 = ax2.scatter(x1[kmod], y1[kmod], z2[kmod], color='black', marker='*')
+            red_scat1 = ax1.scatter(x1[newkmod], y1[newkmod], color='red', marker='*')
+            red_scat2 = ax2.scatter(x1[newkmod], y1[newkmod], z4[newkmod], color='red', marker='*')
+            red_scat3 = ax2.scatter(x1[newkmod], y1[newkmod], z2[newkmod], color='red', marker='*')
+        else:
+            scat1 = ax1.scatter(x2[kmod], y1[kmod], color='black', marker='*')
+            scat2 = ax2.scatter(x2[kmod], y1[kmod], z5[kmod], color='black', marker='*')
+            scat3 = ax2.scatter(x2[kmod], y1[kmod], z2[kmod], color='black', marker='*')
+            red_scat1 = ax1.scatter(x2[newkmod], y1[newkmod], color='red', marker='*')
+            red_scat2 = ax2.scatter(x2[newkmod], y1[newkmod], z5[newkmod], color='red', marker='*')
+            red_scat3 = ax2.scatter(x2[newkmod], y1[newkmod], z5[newkmod], color='red', marker='*')
+
+
         canvas.draw()
-        k += 50
+
+        red_scat1.remove()
+        red_scat2.remove()
+        red_scat3.remove()
+
+        k += dim//per
         if combo_2.get() == 'No':
             scat1.remove()
             scat2.remove()
-            if k >= 10000:
-                scat1 = []
-                scat2 = []
-                k %= 10000
+            scat3.remove()
+            if k >= dim:
+                k %= dim
         if combo_2.get() == 'Yes':
-            if k >= 10000:
+            if k >= dim:
                 return 0
         if button_1['state'] == tk.NORMAL: return 0
-        win.after(20, running_dot)
+        counter += 1
+        win.after(30, running_dot)
+    # create FigureCanvasTkAgg object
+    canvas = FigureCanvasTkAgg(fig, win)
+    canvas.get_tk_widget().grid(row=0, column=2, rowspan=2000, stick='n')
+    canvas.draw()
+    running_dot()
+
+def fifthFunctionStart():
+    # figure and axes
+    dim = 5000
+    per = 100
+    fig = Figure(figsize=(12, 4))
+    ax1 = fig.add_subplot(1, 2, 1)
+    ax2 = fig.add_subplot(1, 2, 2, projection='3d')
+    # fake round
+    alpha = np.linspace(0, 2 * np.pi, dim)
+    x0 = np.sin(alpha)
+    y0 = np.cos(alpha)
+    # 2d axes
+    t = np.linspace(10, -10, dim)
+    beta = np.arctan(t)
+    x1 = np.cos(beta)
+    y1 = np.sin(beta)
+    x2 = -np.cos(beta)
+    # 3d axes
+    z2 = np.linspace(0, 0, dim)
+    z31 = (np.sin(np.linspace(np.pi, 0, dim//2) + np.pi/2) + 1)/2
+    z32 = ((np.sin(np.linspace(0, -np.pi, dim//2) + np.pi/2) + 1)/2)**3
+    z = np.hstack([z31, z32])
+    z4 = (np.sin(beta + np.pi) + 1)/2
+    z5 = ((np.sin(beta - 3 * np.pi) + 1)/2)**3
+    # print all of axes
+    ax1.plot(x0, y0, color='gray')
+    ax2.plot(x0, y0, z2, color='black', alpha=0.5)
+    ax2.plot(x0, y0, z, color='black')
+    # move coordinate axes into center
+    ax1.spines['bottom'].set_position(('data',0))
+    ax1.spines['left'].set_position(('data',0))
+    ax1.spines['top'].set_visible(False)
+    ax1.spines['right'].set_visible(False)
+    # text marks on the axes
+    ax1.set_xlabel('X', fontsize=14)
+    ax1.set_ylabel('Y', fontsize=14)
+    ax1.set_title('', fontweight = 'bold', fontsize=16)
+    ax2.set_xlabel('X', fontsize=14)
+    ax2.set_ylabel('Y', fontsize=14)
+    ax2.set_zlabel('Z', fontsize=14)
+    ax2.set_title('Lyapunov function', fontsize=16)
+    ax1.axis('off')
+    ax2.axis('off')
+    # limiting 3d axes
+    ax2.set_xlim(-1, 1)
+    ax2.set_ylim(-1, 1)
+    ax2.set_zlim(0, max(z4))
+    k = 1
+    def running_dot():
+        nonlocal k
+        kmod = k % dim
+        newkmod = (kmod + dim//per) % dim
+
+        scat1 = ax1.scatter(x1[kmod], y1[kmod], color='black', marker='*')
+        scat2 = ax2.scatter(x1[kmod], y1[kmod], z4[kmod], color='black', marker='*')
+        scat3 = ax2.scatter(x1[kmod], y1[kmod], z2[kmod], color='black', marker='*')
+        scat4 = ax1.scatter(x2[kmod], y1[kmod], color='black', marker='*')
+        scat5 = ax2.scatter(x2[kmod], y1[kmod], z5[kmod], color='black', marker='*')
+        scat6 = ax2.scatter(x2[kmod], y1[kmod], z2[kmod], color='black', marker='*')
+        red_scat1 = ax1.scatter(x1[newkmod], y1[newkmod], color='red', marker='*')
+        red_scat2 = ax2.scatter(x1[newkmod], y1[newkmod], z4[newkmod], color='red', marker='*')
+        red_scat3 = ax2.scatter(x1[newkmod], y1[newkmod], z2[newkmod], color='red', marker='*')
+        red_scat4 = ax1.scatter(x2[newkmod], y1[newkmod], color='red', marker='*')
+        red_scat5 = ax2.scatter(x2[newkmod], y1[newkmod], z5[newkmod], color='red', marker='*')
+        red_scat6 = ax2.scatter(x2[newkmod], y1[newkmod], z2[newkmod], color='red', marker='*')
+
+        canvas.draw()
+
+        red_scat1.remove()
+        red_scat2.remove()
+        red_scat3.remove()
+        red_scat4.remove()
+        red_scat5.remove()
+        red_scat6.remove()
+
+        k += dim//per
+        if combo_2.get() == 'No':
+            scat1.remove()
+            scat2.remove()
+            scat3.remove()
+            scat4.remove()
+            scat5.remove()
+            scat6.remove()
+            if k >= dim:
+                k %= dim
+        if combo_2.get() == 'Yes':
+            if k >= dim:
+                return 0
+        if button_1['state'] == tk.NORMAL: return 0
+        win.after(30, running_dot)
+    # create FigureCanvasTkAgg object
+    canvas = FigureCanvasTkAgg(fig, win)
+    canvas.get_tk_widget().grid(row=0, column=2, rowspan=2000, stick='n')
+    canvas.draw()
+    running_dot()
+
+def sixthFunctionStart():
+    # figure and axes
+    dim = 10000
+    per = 100
+    fig = Figure(figsize=(12, 4))
+    ax1 = fig.add_subplot(1, 2, 1)
+    ax2 = fig.add_subplot(1, 2, 2, projection='3d')
+    # fake round
+    alpha = np.linspace(0, 2 * np.pi, dim)
+    x0 = np.sin(alpha)
+    y0 = np.cos(alpha)
+    # 2d axes
+    t = np.linspace(20, -20, dim)
+    beta = np.arctan(t) / 4 + np.pi / 4
+    x11 = np.cos(beta)
+    y11 = np.sin(beta)
+    x12 = -np.cos(beta)
+    y12 = -np.sin(beta)
+    x13 = np.cos(beta)
+    y13 = -np.sin(beta)
+    x14 = -np.cos(beta)
+    y14 = np.sin(beta)
+    # 3d axes
+    z2 = np.linspace(0, 0, dim)
+    z31 = (np.sin(np.linspace(-np.pi, 0, dim//4) + np.pi/2) + 1)/2
+    z32 = ((np.sin(np.linspace(0, np.pi, dim//4) + np.pi/2) + 1)/2)**3
+    z3 = np.hstack([z31, z32, z31, z32])
+    z5 = (np.sin(beta * 2 + np.pi/2) + 1)/2
+    z4 = ((np.sin(beta * 2 + np.pi/2) + 1)/2)**3
+    # print all of axes
+    ax1.plot(x0, y0, color='gray')
+    ax2.plot(x0, y0, z2, color='black', alpha=0.5)
+    ax2.plot(x0, y0, z3, color='black')
+    # move coordinate axes into center
+    ax1.spines['bottom'].set_position(('data',0))
+    ax1.spines['left'].set_position(('data',0))
+    ax1.spines['top'].set_visible(False)
+    ax1.spines['right'].set_visible(False)
+    # text marks on the axes
+    ax1.set_xlabel('X', fontsize=14)
+    ax1.set_ylabel('Y', fontsize=14)
+    ax1.set_title('', fontweight = 'bold', fontsize=16)
+    ax2.set_xlabel('X', fontsize=14)
+    ax2.set_ylabel('Y', fontsize=14)
+    ax2.set_zlabel('Z', fontsize=14)
+    ax2.set_title('Lyapunov function', fontsize=16)
+    ax1.axis('off')
+    ax2.axis('off')
+    # limiting 3d axes
+    ax2.set_xlim(-1, 1)
+    ax2.set_ylim(-1, 1)
+    ax2.set_zlim(0, max(z3))
+    k = 1
+    counter = 1
+    def running_dot():
+        nonlocal k, counter
+        kmod = k % dim
+        newkmod = (kmod + dim//per) % dim
+
+        if counter % 2 == 1:
+            scat1 = ax1.scatter(x11[kmod], y11[kmod], color='black', marker='*')
+            scat2 = ax2.scatter(x11[kmod], y11[kmod], z5[kmod], color='black', marker='*')
+            scat3 = ax2.scatter(x11[kmod], y11[kmod], z2[kmod], color='black', marker='*')
+            red_scat1 = ax1.scatter(x11[newkmod], y11[newkmod], color='red', marker='*')
+            red_scat2 = ax2.scatter(x11[newkmod], y11[newkmod], z5[newkmod], color='red', marker='*')
+            red_scat3 = ax2.scatter(x11[newkmod], y11[newkmod], z2[newkmod], color='red', marker='*')
+            scat4 = ax1.scatter(x13[kmod], y13[kmod], color='black', marker='*')
+            scat5 = ax2.scatter(x13[kmod], y13[kmod], z4[kmod], color='black', marker='*')
+            scat6 = ax2.scatter(x13[kmod], y13[kmod], z2[kmod], color='black', marker='*')
+            red_scat4 = ax1.scatter(x13[newkmod], y13[newkmod], color='blue', marker='*')
+            red_scat5 = ax2.scatter(x13[newkmod], y13[newkmod], z4[newkmod], color='blue', marker='*')
+            red_scat6 = ax2.scatter(x13[newkmod], y13[newkmod], z2[newkmod], color='blue', marker='*')
+        else:
+            scat1 = ax1.scatter(x12[kmod], y12[kmod], color='black', marker='*')
+            scat2 = ax2.scatter(x12[kmod], y12[kmod], z5[kmod], color='black', marker='*')
+            scat3 = ax2.scatter(x12[kmod], y12[kmod], z2[kmod], color='black', marker='*')
+            red_scat1 = ax1.scatter(x12[newkmod], y12[newkmod], color='red', marker='*')
+            red_scat2 = ax2.scatter(x12[newkmod], y12[newkmod], z5[newkmod], color='red', marker='*')
+            red_scat3 = ax2.scatter(x12[newkmod], y12[newkmod], z2[newkmod], color='red', marker='*')
+            scat4 = ax1.scatter(x14[kmod], y14[kmod], color='black', marker='*')
+            scat5 = ax2.scatter(x14[kmod], y14[kmod], z4[kmod], color='black', marker='*')
+            scat6 = ax2.scatter(x14[kmod], y14[kmod], z2[kmod], color='black', marker='*')
+            red_scat4 = ax1.scatter(x14[newkmod], y14[newkmod], color='blue', marker='*')
+            red_scat5 = ax2.scatter(x14[newkmod], y14[newkmod], z4[newkmod], color='blue', marker='*')
+            red_scat6 = ax2.scatter(x14[newkmod], y14[newkmod], z2[newkmod], color='blue', marker='*')
+
+        canvas.draw()
+
+        red_scat1.remove()
+        red_scat2.remove()
+        red_scat3.remove()
+        red_scat4.remove()
+        red_scat5.remove()
+        red_scat6.remove()
+
+        k += dim//per
+        if combo_2.get() == 'No':
+            scat1.remove()
+            scat2.remove()
+            scat3.remove()
+            scat4.remove()
+            scat5.remove()
+            scat6.remove()
+            if k >= dim:
+                k %= dim
+        if combo_2.get() == 'Yes':
+            if k >= dim:
+                return 0
+        if button_1['state'] == tk.NORMAL: return 0
+        counter += 1
+        win.after(30, running_dot)
+    # create FigureCanvasTkAgg object
+    canvas = FigureCanvasTkAgg(fig, win)
+    canvas.get_tk_widget().grid(row=0, column=2, rowspan=2000, stick='n')
+    canvas.draw()
+    running_dot()
+
+def seventhFunctionStart():
+    # figure and axes
+    dim = 10000
+    per = 100
+    fig = Figure(figsize=(12, 4))
+    ax1 = fig.add_subplot(1, 2, 1)
+    ax2 = fig.add_subplot(1, 2, 2, projection='3d')
+    # fake round
+    alpha = np.linspace(0, 2 * np.pi, dim)
+    x0 = np.sin(alpha)
+    y0 = np.cos(alpha)
+    # 2d axes
+    t = np.linspace(-20, 20, dim)
+    beta = np.arctan(t) / 8 + np.pi / 8
+    x11 = np.cos(beta)
+    y11 = np.sin(beta)
+    x12 = -np.cos(beta)
+    y12 = -np.sin(beta)
+    x13 = np.cos(beta)
+    y13 = -np.sin(beta)
+    x14 = -np.cos(beta)
+    y14 = np.sin(beta)
+    x15 = np.sin(beta)
+    y15 = np.cos(beta)
+    x16 = -np.sin(beta)
+    y16 = -np.cos(beta)
+    x17 = np.sin(beta)
+    y17 = -np.cos(beta)
+    x18 = -np.sin(beta)
+    y18 = np.cos(beta)
+    # 3d axes
+    z2 = np.linspace(0, 0, dim)
+    z31 = (np.sin(np.linspace(-np.pi, 0, dim//8) + np.pi/2) + 1)/2
+    z32 = (np.sin(np.linspace(0, np.pi, dim//8) + np.pi/2) + 1)/2
+    z3 = np.hstack([z32, z31, z32, z31, z32, z31, z32, z31])
+    z4 = (np.sin(beta * 4 + np.pi/2) + 1)/2
+    z5 = (np.sin(beta * 4 + np.pi/2) + 1)/2
+    # print all of axes
+    ax1.plot(x0, y0, color='gray')
+    ax2.plot(x0, y0, z2, color='black', alpha=0.5)
+    ax2.plot(x0, y0, z3, color='black')
+    # move coordinate axes into center
+    ax1.spines['bottom'].set_position(('data',0))
+    ax1.spines['left'].set_position(('data',0))
+    ax1.spines['top'].set_visible(False)
+    ax1.spines['right'].set_visible(False)
+    # text marks on the axes
+    ax1.set_xlabel('X', fontsize=14)
+    ax1.set_ylabel('Y', fontsize=14)
+    ax1.set_title('', fontweight = 'bold', fontsize=16)
+    ax2.set_xlabel('X', fontsize=14)
+    ax2.set_ylabel('Y', fontsize=14)
+    ax2.set_zlabel('Z', fontsize=14)
+    ax2.set_title('Lyapunov function', fontsize=16)
+    ax1.axis('off')
+    ax2.axis('off')
+    # limiting 3d axes
+    ax2.set_xlim(-1, 1)
+    ax2.set_ylim(-1, 1)
+    ax2.set_zlim(0, max(z3))
+    k = 1
+    counter = 1
+    def running_dot():
+        nonlocal k, counter
+        kmod = k % dim
+        newkmod = (kmod + dim//per) % dim
+
+        if counter % 2 == 1:
+            scat1 = ax1.scatter(x11[kmod], y11[kmod], color='black', marker='*')
+            scat2 = ax2.scatter(x11[kmod], y11[kmod], z5[kmod], color='black', marker='*')
+            scat3 = ax2.scatter(x11[kmod], y11[kmod], z2[kmod], color='black', marker='*')
+            red_scat1 = ax1.scatter(x11[newkmod], y11[newkmod], color='red', marker='*')
+            red_scat2 = ax2.scatter(x11[newkmod], y11[newkmod], z5[newkmod], color='red', marker='*')
+            red_scat3 = ax2.scatter(x11[newkmod], y11[newkmod], z2[newkmod], color='red', marker='*')
+            scat4 = ax1.scatter(x13[kmod], y13[kmod], color='black', marker='*')
+            scat5 = ax2.scatter(x13[kmod], y13[kmod], z4[kmod], color='black', marker='*')
+            scat6 = ax2.scatter(x13[kmod], y13[kmod], z2[kmod], color='black', marker='*')
+            red_scat4 = ax1.scatter(x13[newkmod], y13[newkmod], color='blue', marker='*')
+            red_scat5 = ax2.scatter(x13[newkmod], y13[newkmod], z4[newkmod], color='blue', marker='*')
+            red_scat6 = ax2.scatter(x13[newkmod], y13[newkmod], z2[newkmod], color='blue', marker='*')
+           
+        else:
+            scat1 = ax1.scatter(x12[kmod], y12[kmod], color='black', marker='*')
+            scat2 = ax2.scatter(x12[kmod], y12[kmod], z5[kmod], color='black', marker='*')
+            scat3 = ax2.scatter(x12[kmod], y12[kmod], z2[kmod], color='black', marker='*')
+            red_scat1 = ax1.scatter(x12[newkmod], y12[newkmod], color='red', marker='*')
+            red_scat2 = ax2.scatter(x12[newkmod], y12[newkmod], z5[newkmod], color='red', marker='*')
+            red_scat3 = ax2.scatter(x12[newkmod], y12[newkmod], z2[newkmod], color='red', marker='*')
+            scat4 = ax1.scatter(x14[kmod], y14[kmod], color='black', marker='*')
+            scat5 = ax2.scatter(x14[kmod], y14[kmod], z4[kmod], color='black', marker='*')
+            scat6 = ax2.scatter(x14[kmod], y14[kmod], z2[kmod], color='black', marker='*')
+            red_scat4 = ax1.scatter(x14[newkmod], y14[newkmod], color='blue', marker='*')
+            red_scat5 = ax2.scatter(x14[newkmod], y14[newkmod], z4[newkmod], color='blue', marker='*')
+            red_scat6 = ax2.scatter(x14[newkmod], y14[newkmod], z2[newkmod], color='blue', marker='*')
+        
+        scat7 = ax1.scatter(x15[kmod], y15[kmod], color='black', marker='*')
+        scat8 = ax2.scatter(x15[kmod], y15[kmod], z5[kmod], color='black', marker='*')
+        scat9 = ax2.scatter(x15[kmod], y15[kmod], z2[kmod], color='black', marker='*')
+        red_scat7 = ax1.scatter(x15[newkmod], y15[newkmod], color='yellow', marker='*')
+        red_scat8 = ax2.scatter(x15[newkmod], y15[newkmod], z5[newkmod], color='yellow', marker='*')
+        red_scat9 = ax2.scatter(x15[newkmod], y15[newkmod], z2[newkmod], color='yellow', marker='*')
+        scat10 = ax1.scatter(x17[kmod], y17[kmod], color='black', marker='*')
+        scat11 = ax2.scatter(x17[kmod], y17[kmod], z4[kmod], color='black', marker='*')
+        scat12 = ax2.scatter(x17[kmod], y17[kmod], z2[kmod], color='black', marker='*')
+        red_scat10 = ax1.scatter(x17[newkmod], y17[newkmod], color='green', marker='*')
+        red_scat11 = ax2.scatter(x17[newkmod], y17[newkmod], z4[newkmod], color='green', marker='*')
+        red_scat12 = ax2.scatter(x17[newkmod], y17[newkmod], z2[newkmod], color='green', marker='*')
+        scat13 = ax1.scatter(x16[kmod], y16[kmod], color='black', marker='*')
+        scat14 = ax2.scatter(x16[kmod], y16[kmod], z5[kmod], color='black', marker='*')
+        scat15 = ax2.scatter(x16[kmod], y16[kmod], z2[kmod], color='black', marker='*')
+        red_scat13 = ax1.scatter(x16[newkmod], y16[newkmod], color='green', marker='*')
+        red_scat14 = ax2.scatter(x16[newkmod], y16[newkmod], z5[newkmod], color='green', marker='*')
+        red_scat15 = ax2.scatter(x16[newkmod], y16[newkmod], z2[newkmod], color='green', marker='*')
+        scat16 = ax1.scatter(x18[kmod], y18[kmod], color='black', marker='*')
+        scat17 = ax2.scatter(x18[kmod], y18[kmod], z4[kmod], color='black', marker='*')
+        scat18 = ax2.scatter(x18[kmod], y18[kmod], z2[kmod], color='black', marker='*')
+        red_scat16 = ax1.scatter(x18[newkmod], y18[newkmod], color='yellow', marker='*')
+        red_scat17 = ax2.scatter(x18[newkmod], y18[newkmod], z4[newkmod], color='yellow', marker='*')
+        red_scat18 = ax2.scatter(x18[newkmod], y18[newkmod], z2[newkmod], color='yellow', marker='*')
+
+        k += dim//per
+        if combo_2.get() == 'No':
+            scat1.remove()
+            scat2.remove()
+            scat3.remove()
+            scat4.remove()
+            scat5.remove()
+            scat6.remove()
+            scat7.remove()
+            scat8.remove()
+            scat9.remove()
+            scat10.remove()
+            scat11.remove()
+            scat12.remove()
+            scat13.remove()
+            scat14.remove()
+            scat15.remove()
+            scat16.remove()
+            scat17.remove()
+            scat18.remove()
+            if k >= dim:
+                k %= dim
+        if combo_2.get() == 'Yes':
+            if k >= dim:
+                return 0
+        
+        canvas.draw()
+
+        red_scat1.remove()
+        red_scat2.remove()
+        red_scat3.remove()
+        red_scat4.remove()
+        red_scat5.remove()
+        red_scat6.remove()
+        red_scat7.remove()
+        red_scat8.remove()
+        red_scat9.remove()
+        red_scat10.remove()
+        red_scat11.remove()
+        red_scat12.remove()
+        red_scat13.remove()
+        red_scat14.remove()
+        red_scat15.remove()
+        red_scat16.remove()
+        red_scat17.remove()
+        red_scat18.remove()
+        if button_1['state'] == tk.NORMAL: return 0
+        counter += 1
+        win.after(30, running_dot)
     # create FigureCanvasTkAgg object
     canvas = FigureCanvasTkAgg(fig, win)
     canvas.get_tk_widget().grid(row=0, column=2, rowspan=2000, stick='n')
@@ -207,10 +772,10 @@ photo = tk.PhotoImage(file='icon.png')
 win.iconphoto(False, photo)
 win.title('Graph application')
 win.config(bg='white')
-win.geometry('1000x450+50+50')
+win.geometry('1400x450+20+100')
 win.resizable(False, False)
 
-types_of_graphics = ['Rotating on circumference by a rational angle', 'Circumference filling', 'Unpassable baby', 'System Sink-Source']
+types_of_graphics = ['Rotating on circumference by a rational angle', 'Circumference filling', 'Unpassable baby', 'System Sink-Source', '5', '6', '7']
 
 combo_1 = ttk.Combobox(win, values=types_of_graphics)
 combo_2 = ttk.Combobox(win, values=['Yes', 'No'])

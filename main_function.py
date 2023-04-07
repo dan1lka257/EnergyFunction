@@ -17,24 +17,27 @@ def start_application(n):
     button_1['state'] = tk.DISABLED
     button_2['state'] = tk.NORMAL
     # figure and axes
+    dim = 10000
     fig = Figure(figsize=(12, 4))
     ax1 = fig.add_subplot(1, 2, 1)
     ax2 = fig.add_subplot(1, 2, 2, projection='3d')
-    radius = 1
+    # fake round
+    alpha = np.linspace(0, 2 * np.pi, dim)
+    x0 = np.cos(alpha)
+    y0 = np.sin(alpha)
     # 2d axes
-    x1 = np.linspace(0, radius, 1000)
-    y1 = abs(x1 - radius/2)**n
-    # parameter
-    t = 2 * np.pi * x1 / radius
+    t = np.linspace(10, -10, 10000)
+    beta = np.arctan(t)
+    x1 = np.cos(beta)
+    y1 = np.sin(beta)
+    x2 = -np.cos(beta)
     # 3d axes
-    x2 = radius * np.cos(t)
-    y2 = radius * np.sin(t)
-    z2 = np.linspace(0, 0, 1000)
-    z3 = y1
+    z2 = np.linspace(0, 0, dim)
+    z3 = np.sin(np.linspace(-np.pi, np.pi, dim) + np.pi / 2) + 1
     # print all of axes
-    ax1.plot(x1, y1, color='black')
-    ax2.plot(x2, y2, z2, color='black', alpha=0.5)
-    ax2.plot(x2, y2, z3, color='black')
+    ax1.plot(x0, y0, color='gray')
+    ax2.plot(x0, y0, z2, color='black', alpha=0.5)
+    ax2.plot(x0, y0, z3, color='black')
     # move coordinate axes into center
     ax1.spines['bottom'].set_position(('data',0))
     ax1.spines['left'].set_position(('data',0))
@@ -43,33 +46,50 @@ def start_application(n):
     # text marks on the axes
     ax1.set_xlabel('X', fontsize=14)
     ax1.set_ylabel('Y', fontsize=14)
-    ax1.set_title(f'y = |x - {radius}/2|^{n} function', fontweight = 'bold', fontsize=16)
+    ax1.set_title('', fontweight = 'bold', fontsize=16)
     ax2.set_xlabel('X', fontsize=14)
     ax2.set_ylabel('Y', fontsize=14)
     ax2.set_zlabel('Z', fontsize=14)
-    ax2.set_title(f'y = |x - {radius}/2|^{n} function into circle', fontweight = 'bold',   fontsize=16)
+    ax2.set_title('Lyapunov function', fontsize=16)
+    ax1.axis('off')
+    ax2.axis('off')
     # limiting 3d axes
-    ax2.set_xlim(-radius, radius)
-    ax2.set_ylim(-radius, radius)
+    ax2.set_xlim(-1, 1)
+    ax2.set_ylim(-1, 1)
     ax2.set_zlim(0, max(z3))
     k = 1
     def running_dot():
+        per = 100
         nonlocal k
-        kmod = k % 1000
+        kmod = k % dim
+        newkmod = (kmod + dim//per) % dim
+
         scat1 = ax1.scatter(x1[kmod], y1[kmod], color='black', marker='*')
-        scat2 = ax2.scatter(x2[kmod], y2[kmod], z3[kmod], color='black', marker='*')
+        scat2 = ax2.scatter(x1[kmod], y1[kmod], z3[kmod], color='black', marker='*')
+        scat3 = ax2.scatter(x1[kmod], y1[kmod], z2[kmod], color='black', marker='*')
+
+        red_scat1 = ax1.scatter(x1[newkmod], y1[newkmod], color='red', marker='*')
+        red_scat2 = ax2.scatter(x1[newkmod], y1[newkmod], z3[newkmod], color='red', marker='*')
+        red_scat3 = ax2.scatter(x1[newkmod], y1[newkmod], z2[newkmod], color='red', marker='*')
+        
         canvas.draw()
-        k += 25
-        if combo_1.get() == 'Yes':
+
+        red_scat1.remove()
+        red_scat2.remove()
+        red_scat3.remove()
+
+        k += dim//per
+        if combo_1.get() == 'No':
             scat1.remove()
             scat2.remove()
-            if k >= 1000:
-                k %= 1000
-        if combo_1.get() == 'No':
-            if k >= 1000:
+            scat3.remove()
+            if k >= dim:
+                k %= dim
+        if combo_1.get() == 'Yes':
+            if k >= dim:
                 return 0
         if button_1['state'] == tk.NORMAL: return 0
-        win.after(50, running_dot)
+        win.after(10, running_dot)
     # create FigureCanvasTkAgg object
     canvas = FigureCanvasTkAgg(fig, win)
     canvas.get_tk_widget().grid(row=0, column=2, rowspan=2000, stick='n')
